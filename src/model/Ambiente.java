@@ -5,19 +5,24 @@ public class Ambiente {
     private Integer id;
     private String nome;
     private String cep;
+    private String rua;
     private String numero;
     private String bairro;
     private Cidade cidade;
     private Categoria categoria;
 
-    public Ambiente(Integer id, String nome, String cep, String numero, String bairro, Cidade cidade, Categoria categoria) {
+    public Ambiente(Integer id, String nome, String cep,String rua, String numero, String bairro, Cidade cidade, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.cep = cep;
+        this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
         this.cidade = cidade;
         this.categoria = categoria;
+    }
+
+    public Ambiente() {
     }
 
     public Integer getId() {
@@ -42,6 +47,14 @@ public class Ambiente {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     public String getNumero() {
