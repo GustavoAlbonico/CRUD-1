@@ -11,6 +11,4 @@ public class EmpresaDAO {
         List<Empresa> empresas1 = empresaRepository.buscaPorId(id);
         return empresas1;
     }
-
-
 }

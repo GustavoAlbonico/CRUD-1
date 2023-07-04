@@ -10,7 +10,7 @@ import java.util.List;
 public class EmpresaRepository {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/CRUD";
+        String url = "jdbc:mysql://localhost:3306/ambientes_inovacao";
         Connection connection = DriverManager.getConnection(url, "root", "");
 
         return connection;
