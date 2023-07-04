@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando branch">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando model,repository e">
+      <change afterPath="$PROJECT_DIR$/src/model/Ambiente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -67,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688430201194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="criando model,repository e">
+      <created>1688430632661</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688430632661</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,6 +98,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primeiro commit" />
     <MESSAGE value="criando branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="criando branch" />
+    <MESSAGE value="criando model,repository e" />
+    <option name="LAST_COMMIT_MESSAGE" value="criando model,repository e" />
   </component>
 </project>
