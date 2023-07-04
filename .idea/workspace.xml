@@ -4,8 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando model,repository e">
-      <change afterPath="$PROJECT_DIR$/src/model/Ambiente.java" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando model,repository e relatorios">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Categoria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Cidade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/EstadoEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repository/CategoriaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repository/CidadeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD-Ambiente-de-Inovacao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CRUD-Ambiente-de-Inovacao.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Ambiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ambiente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -46,9 +60,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/gusta/Downloads/mysql-connector-java-8.0.26.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.kotlinCompiler"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688430632661</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="criando model,repository e relatorios">
+      <created>1688431066830</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688431066830</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +123,11 @@
     <MESSAGE value="primeiro commit" />
     <MESSAGE value="criando branch" />
     <MESSAGE value="criando model,repository e" />
-    <option name="LAST_COMMIT_MESSAGE" value="criando model,repository e" />
+    <MESSAGE value="criando model,repository e relatorios" />
+    <option name="LAST_COMMIT_MESSAGE" value="criando model,repository e relatorios" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
