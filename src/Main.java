@@ -1,5 +1,9 @@
+import model.Ambiente;
+import model.Categoria;
 import model.Cidade;
 import model.EstadoEnum;
+import repository.AmbienteDAO;
+import repository.CategoriaDAO;
 import repository.CidadeDAO;
 import repository.CidadeRepository;
 
@@ -42,10 +46,10 @@ public class Main {
                     chamaMenuCadastroCidade();
                     break;
                 case 1: //menuCadastroCategoria
-                 //   chamaMenuCadastroCategoria();
+                    chamaMenuCadastroCategoria();
                     break;
                 case 2: //menuCadastroAmbiente
-                 //   chamaMenuCadastroAmbiente();
+                    chamaMenuCadastroAmbiente();
                     break;
                 case 3: //menuCadastroEmpresa
                    // chamaMenuCadastroEmpresa();
@@ -114,10 +118,122 @@ public class Main {
         chamaMenuCadastroCidade();
 
     }
+    private static void chamaMenuCadastroCategoria() throws SQLException, ClassNotFoundException {
+
+        String[] opcoesMenuCadastro = {"Cadastrar", "Remover", "Editar","Voltar"};
+        int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+                "Menu Cadastro Categoria",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
+
+        switch (menuCadastro) {
+            case 0: //CadastroCategoria
+                chamaCadastroCategoria();
+                break;
+            case 1: //RemoverCategoria
+               // chamaRemoverCategoria();
+                break;
+            case 2: //EditarCategoria
+                //   chamaEditarCategoria();
+                break;
+            case 3: //Voltar
+                chamaMenuCadastros();
+                break;
+        }
+    }
+
+    private static void chamaCadastroCategoria() throws SQLException, ClassNotFoundException {
+
+        String nomeCategoria = JOptionPane.showInputDialog(null, "Informe o nome da categoria:",
+                "Cadastro Categoria", JOptionPane.DEFAULT_OPTION);
+
+        Categoria categoria =  new Categoria(null,nomeCategoria);
+
+        getCategoriaDAO().salvar(categoria);
+
+        JOptionPane.showConfirmDialog(null, "Categoria cadastrada com sucesso!",
+                "Cadastro Categoria", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroCategoria();
+
+    }
+
+    private static void chamaMenuCadastroAmbiente() throws SQLException, ClassNotFoundException {
+
+        String[] opcoesMenuCadastro = {"Cadastrar", "Remover", "Editar","Voltar"};
+        int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+                "Menu Cadastro Categoria",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
+
+        switch (menuCadastro) {
+            case 0: //CadastroAmbiente
+                chamaCadastroAmbiente();
+                break;
+            case 1: //RemoverAmbiente
+                // chamaRemoverAmbiente();
+                break;
+            case 2: //EditarAmbiente
+                //   chamaEditarAmbiente();
+                break;
+            case 3: //Voltar
+                chamaMenuCadastros();
+                break;
+        }
+    }
+
+    private static void chamaCadastroAmbiente() throws SQLException, ClassNotFoundException {
+
+        String nomeAmbiente = JOptionPane.showInputDialog(null, "Informe o nome do ambiente de inovação:",
+                "Cadastro Ambiente", JOptionPane.DEFAULT_OPTION);
+
+        Object[] selectionValuesCategoria = getCategoriaDAO().findCategoriaInArray();
+        String initialSelectionCategoria = (String) selectionValuesCategoria[0];
+        Object selectionCategoria = JOptionPane.showInputDialog(null, "Selecione a categoria do ambiente de inovação:",
+                "Cadastrar Ambiente", JOptionPane.DEFAULT_OPTION, null, selectionValuesCategoria, initialSelectionCategoria);
+        List<Categoria> categoria = getCategoriaDAO().buscarPorNome((String) selectionCategoria);
+
+        String cep = JOptionPane.showInputDialog(null, "Informe o CEP do ambiente de inovação:",
+                "Cadastro Ambiente", JOptionPane.DEFAULT_OPTION);
+
+        String rua = JOptionPane.showInputDialog(null, "Informe a rua do ambiente de inovação:",
+                "Cadastro Ambiente", JOptionPane.DEFAULT_OPTION);
+
+        String numero = JOptionPane.showInputDialog(null, "Informe o número do ambiente de inovação:",
+                "Cadastro Ambiente", JOptionPane.DEFAULT_OPTION);
+
+        String bairro = JOptionPane.showInputDialog(null, "Informe o bairro do ambiente de inovação:",
+                "Cadastro Ambiente", JOptionPane.DEFAULT_OPTION);
+
+        Object[] selectionValuesCidade = getCidadeDAO().findCidadeInArray();
+        String initialSelectionCidade = (String) selectionValuesCidade[0];
+        Object selectionCidade = JOptionPane.showInputDialog(null, "Selecione a cidade do ambiente de inovação:",
+                "Cadastrar Ambiente", JOptionPane.DEFAULT_OPTION, null, selectionValuesCidade, initialSelectionCidade);
+        List<Cidade> cidade = getCidadeDAO().buscarPorNome((String) selectionCidade);
+
+
+        Ambiente ambiente = new Ambiente(null,nomeAmbiente,cep,rua,numero,bairro,cidade.get(0),categoria.get(0));
+
+        getAmbienteDAO().salvar(ambiente);
+
+        JOptionPane.showConfirmDialog(null, "Ambiente cadastrada com sucesso!",
+                "Cadastro Ambiente", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroCategoria();
+
+    }
 
     public static CidadeDAO getCidadeDAO() {
         CidadeDAO cidadeDAO = new CidadeDAO();
         return cidadeDAO;
+    }
+
+    public static CategoriaDAO getCategoriaDAO() {
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        return categoriaDAO;
+    }
+
+    public static AmbienteDAO getAmbienteDAO() {
+        AmbienteDAO ambienteDAO = new AmbienteDAO();
+        return ambienteDAO;
     }
 
 

@@ -1,4 +1,66 @@
 package repository;
 
-public class CategoriaDAO {
+import model.Categoria;
+import model.Cidade;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class CategoriaDAO implements IGenericDAO<Categoria>{
+
+    List<Categoria> categorias = new ArrayList<>();
+
+    public Object[] findCategoriaInArray() {
+        List<Categoria> categorias1 = buscarTodos();
+        List<String> categoriaNomes = new ArrayList<>();
+
+        for (Categoria categoria : categorias1) {
+            categoriaNomes.add(categoria.getNome());
+        }
+
+        return categoriaNomes.toArray();
+    }
+
+    @Override
+    public void salvar(Categoria categoria) {
+        CategoriaRepository repository =  new CategoriaRepository();
+
+        try {
+            repository.insere(categoria);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void remover(Categoria objeto) throws SQLException, ClassNotFoundException {
+
+    }
+
+    @Override
+    public List<Categoria> buscarTodos(){
+        CategoriaRepository categoriaRepository = new CategoriaRepository();
+        try {
+            categorias = categoriaRepository.busca();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return categorias;
+    }
+
+    @Override
+    public List<Categoria> buscarPorNome(String nome) {
+        List<Categoria> categorias1 = buscarTodos();
+        List<Categoria> filtradas = new ArrayList<>();
+
+        for (Categoria categoria : categorias1) {
+            if (categoria.getNome().contains(nome)) {
+                filtradas.add(categoria);
+            }
+        }
+        return filtradas;
+    }
 }
