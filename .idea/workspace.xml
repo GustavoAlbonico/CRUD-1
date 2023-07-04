@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando model,repository e relatorios">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Categoria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Cidade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/EstadoEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/CategoriaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/CidadeRepository.java" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando as classes Ambiente,Cidade,Categoria,EstadoEnum, e seus DAO e repository, criando alguns menuPrincipal no main,Menu de cadastro e menu de cadastro de Cidade.">
+      <change afterPath="$PROJECT_DIR$/src/repository/IGenericDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CRUD-Ambiente-de-Inovacao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CRUD-Ambiente-de-Inovacao.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Ambiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Ambiente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Cidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Cidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CidadeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CidadeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +22,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -56,18 +49,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/gusta/Downloads/mysql-connector-java-8.0.26.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.kotlinCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/Downloads/mysql-connector-java-8.0.26.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.kotlinCompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -105,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688431066830</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="criando as classes Ambiente,Cidade,Categoria,EstadoEnum, e seus DAO e repository, criando alguns menuPrincipal no main,Menu de cadastro e menu de cadastro de Cidade.">
+      <created>1688445766129</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688445766129</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,7 +124,8 @@
     <MESSAGE value="criando branch" />
     <MESSAGE value="criando model,repository e" />
     <MESSAGE value="criando model,repository e relatorios" />
-    <option name="LAST_COMMIT_MESSAGE" value="criando model,repository e relatorios" />
+    <MESSAGE value="criando as classes Ambiente,Cidade,Categoria,EstadoEnum, e seus DAO e repository, criando alguns menuPrincipal no main,Menu de cadastro e menu de cadastro de Cidade." />
+    <option name="LAST_COMMIT_MESSAGE" value="criando as classes Ambiente,Cidade,Categoria,EstadoEnum, e seus DAO e repository, criando alguns menuPrincipal no main,Menu de cadastro e menu de cadastro de Cidade." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
