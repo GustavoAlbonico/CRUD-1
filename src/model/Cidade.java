@@ -11,6 +11,8 @@ public class Cidade {
         this.nome = nome;
         this.UF = UF;
     }
+    public Cidade(){
+    }
 
     public Integer getId() {
         return id;

@@ -1,17 +1,19 @@
 import model.Cidade;
 import model.EstadoEnum;
 import repository.CidadeDAO;
+import repository.CidadeRepository;
 
 import javax.swing.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         chamaMenuPrincipal();
     }
 
-    private static void chamaMenuPrincipal() {
+    private static void chamaMenuPrincipal() throws SQLException, ClassNotFoundException {
         String[] opcoesMenuPrincipal = {"Cadastros", "Relatórios", "Sair"};
         int opcaoMenuPrincipal = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
                 "Menu Principal",
@@ -29,7 +31,7 @@ public class Main {
         }
     }
 
-        private static void chamaMenuCadastros() {
+        private static void chamaMenuCadastros() throws SQLException, ClassNotFoundException {
             String[] opcoesMenuCadastro = {"Cidade", "Categoria", "Ambiente","Empresa","Voltar"};
             int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
                     "Menu Cadastros",
@@ -54,7 +56,7 @@ public class Main {
             }
         }
 
-        private static void chamaMenuCadastroCidade() {
+        private static void chamaMenuCadastroCidade() throws SQLException, ClassNotFoundException {
 
             String[] opcoesMenuCadastro = {"Cadastrar", "Remover", "Editar","Voltar"};
             int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
@@ -66,7 +68,7 @@ public class Main {
                     chamaCadastroCidade();
                     break;
                 case 1: //RemoverCidade
-                    //   chamaRemoverCidade();
+                    chamaRemoverCidade();
                     break;
                 case 2: //EditarCidade
                     //   chamaEditarCidade();
@@ -76,18 +78,47 @@ public class Main {
                     break;
             }
         }
-    private static void chamaCadastroCidade() {
+    private static void chamaCadastroCidade() throws SQLException, ClassNotFoundException {
 
         String nomeCidade = JOptionPane.showInputDialog(null, "Informe o nome da cidade:",
                 "Cadastro Cidade", JOptionPane.DEFAULT_OPTION);
 
         Object[] opcoesUfEstado = CidadeDAO.findEstadoUFInArray();
         Object selectionUf = JOptionPane.showInputDialog(null, "Selecione a UF referente ao estado da cidade informada:",
-                "Cadastrar Compra", JOptionPane.DEFAULT_OPTION, null, opcoesUfEstado, opcoesUfEstado[0]);
+                "Cadastro Cidade", JOptionPane.DEFAULT_OPTION, null, opcoesUfEstado, opcoesUfEstado[0]);
         List<EstadoEnum> estadoUf = CidadeDAO.buscarPorNome(selectionUf);
 
         Cidade cidade = new Cidade(null,nomeCidade,estadoUf.get(0));
 
+        getCidadeDAO().salvar(cidade);
+
+        JOptionPane.showConfirmDialog(null, "Cidade cadastrada com sucesso!",
+                "Cadastro Cidade", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroCidade();
+
     }
+    private  static void chamaRemoverCidade() throws SQLException, ClassNotFoundException{
+
+        Object[] selectionValuesCidade = getCidadeDAO().findCidadeInArray();
+        String initialSelectionCidade = (String) selectionValuesCidade[0];
+        Object selectionCidade = JOptionPane.showInputDialog(null, "Selecione a cidade que deseja remover:",
+                "Remover Cidade", JOptionPane.DEFAULT_OPTION, null, selectionValuesCidade, initialSelectionCidade);
+        List<Cidade> cidades = getCidadeDAO().buscarPorNome((String) selectionCidade);
+
+        getCidadeDAO().remover(cidades.get(0));
+
+        JOptionPane.showConfirmDialog(null, "Cidade removida com sucesso!",
+                "Remover Cidade", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroCidade();
+
+    }
+
+    public static CidadeDAO getCidadeDAO() {
+        CidadeDAO cidadeDAO = new CidadeDAO();
+        return cidadeDAO;
+    }
+
 
     }
