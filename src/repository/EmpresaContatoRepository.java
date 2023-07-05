@@ -19,7 +19,7 @@ public class EmpresaContatoRepository {
         Connection connection = getConnection();
 
         PreparedStatement stmt = connection.prepareStatement("insert into empresa_contato values (null, ?, ?, ?)");
-        stmt.setString(2, empresaContato.getPerfil());
+        stmt.setString(2, empresaContato.getDescricao());
         stmt.setInt(3, empresaContato.getEmpresa().getId().intValue());
         stmt.setInt(4, empresaContato.getContato().getId().intValue());
 
@@ -39,7 +39,7 @@ public class EmpresaContatoRepository {
         while (resultSet.next()){
             EmpresaContato empresaContato = new EmpresaContato();
             empresaContato.setId(resultSet.getInt(1));
-            empresaContato.setPerfil(resultSet.getString(2));
+            empresaContato.setDescricao(resultSet.getString(2));
 
             //FK - empresa e contato
             EmpresaRepository empresaRepository = new EmpresaRepository();
@@ -64,7 +64,7 @@ public class EmpresaContatoRepository {
         while (resultSet.next()){
             EmpresaContato empresaContato = new EmpresaContato();
             empresaContato.setId(resultSet.getInt(1));
-            empresaContato.setPerfil(resultSet.getString(2));
+            empresaContato.setDescricao(resultSet.getString(2));
 
             EmpresaRepository empresaRepository = new EmpresaRepository();
             empresaContato.setEmpresa(empresaRepository.buscaPorId(resultSet.getInt(3)).get(0));
@@ -80,7 +80,7 @@ public class EmpresaContatoRepository {
     public void update(EmpresaContato empresaContato) throws SQLException, ClassNotFoundException{
         Connection connection = getConnection();
         PreparedStatement stmt = connection.prepareStatement("update empresa_contato set perfil = ?, empresa_id = ?, contato_id = ? where id = ?");
-        stmt.setString(1, empresaContato.getPerfil());
+        stmt.setString(1, empresaContato.getDescricao());
         stmt.setInt(2, empresaContato.getEmpresa().getId().intValue());
         stmt.setInt(3, empresaContato.getContato().getId().intValue());
 
