@@ -1,4 +1,4 @@
 package repository;
 
-public class EmpresaContatoDAO {
+public final class EmpresaContatoDAO {
 }

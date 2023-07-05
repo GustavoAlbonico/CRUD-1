@@ -20,7 +20,6 @@ public class EmpresaRepository {
         Connection connection = getConnection();
 
         PreparedStatement stmt = connection.prepareStatement("insert into empresa values (null, ?, ?, ?)");
-        //stmt.setInt(1, empresa.getId().intValue());
         stmt.setString(2, empresa.getNome());
         stmt.setString(3, empresa.getLogo());
         stmt.setInt(4, empresa.getAmbiente().getId().intValue());
@@ -75,21 +74,9 @@ public class EmpresaRepository {
         return empresas;
     }
 
-    public Integer proximoId() throws SQLException, ClassNotFoundException {
-        Connection connection = getConnection();
-
-        PreparedStatement stmt = connection.prepareStatement("select max(id) from empresa");
-        ResultSet resultSet = stmt.executeQuery();
-
-        while (resultSet.next()) {
-            return resultSet.getInt(1) + 1;
-        }
-        return 1;
-    }
-
     public void update(Empresa empresa) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement("update empresa set nome = ?, logo = ?, ambiente = ? where id = ?");
+        PreparedStatement stmt = connection.prepareStatement("update empresa set nome = ?, logo = ?, ambiente_id = ? where id = ?");
         stmt.setString(1, empresa.getNome());
         stmt.setString(2, empresa.getLogo());
         stmt.setInt(3, empresa.getAmbiente().getId().intValue());
