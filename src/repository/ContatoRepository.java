@@ -62,7 +62,7 @@ public class ContatoRepository {
         return contatos;
     }
 
-    public void update (Contato contato) throws SQLException, ClassNotFoundException{
+    public void update(Contato contato) throws SQLException, ClassNotFoundException{
         Connection connection = getConnection();
 
         PreparedStatement stmt = connection.prepareStatement("update contato set nome = ?");
@@ -73,7 +73,7 @@ public class ContatoRepository {
         connection.close();
     }
 
-    public void delete (Contato contato) throws SQLException, ClassNotFoundException{
+    public void delete(Contato contato) throws SQLException, ClassNotFoundException{
         Connection connection = getConnection();
         PreparedStatement stmt = connection.prepareStatement("delete from contato where id = ?");
         stmt.setInt(1, contato.getId().intValue());

@@ -7,21 +7,22 @@ public class Empresa {
     private String site;
     private Ambiente ambiente;
 
-//    public Empresa(Integer id, String nome, String logo, String site, Ambiente ambiente) {
-//        this.id = id;
-//        this.nome = nome;
-//        this.logo = logo;
-//        this.site = site;
-//        this.ambiente = ambiente;
-//    }
-//
-//    //construtor para campo opcional "site" no banco
-//    public Empresa(Integer id, String nome, String logo, Ambiente ambiente) {
-//        this.id = id;
-//        this.nome = nome;
-//        this.logo = logo;
-//        this.ambiente = ambiente;
-//    }
+    public Empresa(Integer id, String nome, String logo, String site, Ambiente ambiente) {
+        this.id = id;
+        this.nome = nome;
+        this.logo = logo;
+        this.site = site;
+        this.ambiente = ambiente;
+    }
+
+    //construtor para campo opcional "site" no banco
+    public Empresa(Integer id, String nome, String logo, Ambiente ambiente) {
+        this.id = id;
+        this.nome = nome;
+        this.logo = logo;
+        this.ambiente = ambiente;
+    }
+    public Empresa(){}
 
     public Integer getId() {
         return id;
