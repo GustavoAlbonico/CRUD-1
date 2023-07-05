@@ -65,9 +65,10 @@ public class EmpresaRepository {
             empresa.setId(resultSet.getInt(1));
             empresa.setNome(resultSet.getString(2));
             empresa.setLogo(resultSet.getString(3));
+            empresa.setSite(resultSet.getString(4));
 
             AmbienteRepository ambienteRepository = new AmbienteRepository();
-            empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(4)).get(0));
+            empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(5)).get(0));
             empresas.add(empresa);
         }
         connection.close();
@@ -89,10 +90,50 @@ public class EmpresaRepository {
 
     public void delete(Empresa empresa) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement("delete from empresas where id = ?");
+        PreparedStatement stmt = connection.prepareStatement("delete from empresa where id = ?");
 
         stmt.setInt(1, empresa.getId().intValue());
         stmt.executeUpdate();
         connection.close();
     }
+
+    public List<Empresa> buscaPorIdAmbiente(Integer id) throws SQLException, ClassNotFoundException {
+        List<Empresa> empresas = new ArrayList<>();
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("select * from empresa where ambiente_id = ?");
+        stmt.setInt(1, id);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+            Empresa empresa = new Empresa();
+
+            empresa.setId(resultSet.getInt(1));
+            empresa.setNome(resultSet.getString(2));
+            empresa.setLogo(resultSet.getString(3));
+
+            empresas.add(empresa);
+
+        }
+        connection.close();
+        return empresas;
+    }
+
+    //BUSCA QUANTIDADE DE EMPRESA
+    public Integer buscaQtdEmpresa() throws SQLException, ClassNotFoundException {
+        Integer qtdEmpresa = 0;
+        Connection connection = getConnection();
+
+
+        PreparedStatement stmt = connection.prepareStatement("select count(*) from empresa;");
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+
+            qtdEmpresa = resultSet.getInt(1);
+        }
+        connection.close();
+        return qtdEmpresa;
+    }
+
 }

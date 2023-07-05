@@ -1,7 +1,7 @@
 import model.AmbienteGeral;
-import model.Cidade;
-import relatorios.RelatorioAmbienteCidade;
-
+import model.Empresa;
+import relatorios.RelatorioAmbienteGeral;
+import relatorios.RelatorioEmpresaGeral;
 
 import javax.swing.*;
 import javax.swing.table.TableColumn;
@@ -12,31 +12,31 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
-public class RelatorioAmbienteCidadeForm  extends JPanel {
+public class RelatorioEmpresaGeralForm extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
     public static final String[] nomeColunas =
-            {"Nome", "Cep", "Rua", "Número", "Bairro", "Categoria", "Quantidade Empresas", ""};
+            {"Nome", "Site", "Ambiente", ""};
 
     protected JTable table;
     protected JScrollPane scroller;
-    protected RelatorioAmbienteCidade tabela;
+    protected RelatorioEmpresaGeral tabela;
 
-    public RelatorioAmbienteCidadeForm(Vector<AmbienteGeral> vetorDados) {
+    public RelatorioEmpresaGeralForm(Vector<Empresa> vetorDados) {
         iniciarComponentes(vetorDados);
     }
 
 
-    public void iniciarComponentes(Vector<AmbienteGeral> vetorDados) {
-        tabela = new RelatorioAmbienteCidade(nomeColunas, vetorDados);
+    public void iniciarComponentes(Vector<Empresa> vetorDados) {
+        tabela = new RelatorioEmpresaGeral(nomeColunas, vetorDados);
         table = new JTable();
         table.setModel(tabela);
         table.setSurrendersFocusOnKeystroke(true);
         scroller = new javax.swing.JScrollPane(table);
-        table.setPreferredScrollableViewportSize(new java.awt.Dimension(1100, 300));
+        table.setPreferredScrollableViewportSize(new java.awt.Dimension(800, 300));
 
-        TableColumn colunaEscondida = table.getColumnModel().getColumn(RelatorioAmbienteCidade.INDEX_ESCONDIDO);
+        TableColumn colunaEscondida = table.getColumnModel().getColumn(RelatorioEmpresaGeral.INDEX_ESCONDIDO);
         colunaEscondida.setMinWidth(2);
         colunaEscondida.setPreferredWidth(2);
         colunaEscondida.setMaxWidth(2);
@@ -44,16 +44,16 @@ public class RelatorioAmbienteCidadeForm  extends JPanel {
         add(scroller, BorderLayout.CENTER);
     }
 
-    public static void emitirRelatorio (List<AmbienteGeral> ambienteGerals, Cidade cidade) {
+    public static void emitirRelatorio (List<Empresa> empresasGeral) {
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-            JFrame frame = new JFrame("Relatório de Ambientes Cidade ("+cidade.getNome()+") ("+cidade.getUF()+")");
+            JFrame frame = new JFrame("Relatório de Ambientes Geral");
 
             frame.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent evt) {
                     frame.setVisible(false);
                     try {
-                        Main.chamaMenuRelatoriosAmbiente();
+                        Main.chamaMenuRelatorioEmpresa();
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     } catch (ClassNotFoundException e) {
@@ -61,12 +61,12 @@ public class RelatorioAmbienteCidadeForm  extends JPanel {
                     }
                 }
             });
-            Vector<AmbienteGeral> vetorDados = new Vector<AmbienteGeral>();
-            for (AmbienteGeral ambienteGeral : ambienteGerals) {
-                vetorDados.add(ambienteGeral);
+            Vector<Empresa> vetorDados = new Vector<Empresa>();
+            for (Empresa empresa : empresasGeral) {
+                vetorDados.add(empresa);
             }
 
-            frame.getContentPane().add(new RelatorioAmbienteCidadeForm(vetorDados));
+            frame.getContentPane().add(new RelatorioEmpresaGeralForm(vetorDados));
             frame.pack();
             frame.setVisible(true);
             frame.setLocationRelativeTo(null);

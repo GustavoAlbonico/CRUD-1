@@ -36,43 +36,43 @@ public class RelatorioAmbienteGeral  extends AbstractTableModel{
         public boolean isCellEditable(int linha, int coluna) {
             if (coluna == INDEX_ESCONDIDO) {
                 return false;
-            } else {
-                return true;
+                } else {
+                    return true;
+                }
             }
-        }
 
-        @Override
-        public Object getValueAt(int linha, int coluna) {
-            AmbienteGeral registroAmbienteGeral = (AmbienteGeral) vetorDados.get(linha);
-            switch (coluna) {
-                case INDEX_NOME:
-                    return registroAmbienteGeral.getNome();
-                case INDEX_CEP:
-                    return registroAmbienteGeral.getCep();
-                case INDEX_RUA:
-                    return registroAmbienteGeral.getRua();
-                case INDEX_NUMERO:
-                    return registroAmbienteGeral.getNumero();
-                case INDEX_BAIRRO:
-                    return registroAmbienteGeral.getBairro();
-                case INDEX_CIDADE:
-                    return registroAmbienteGeral.getCidade().getNome();
-                case INDEX_CATEGORIA:
-                    return registroAmbienteGeral.getCategoria().getNome();
-                case INDEX_QUANTIDADE_EMPRESAS:
-                    return registroAmbienteGeral.getListaEmpresa().size();
-                default:
-                    return new Object();
+            @Override
+            public Object getValueAt(int linha, int coluna) {
+                AmbienteGeral registroAmbienteGeral = (AmbienteGeral) vetorDados.get(linha);
+                switch (coluna) {
+                    case INDEX_NOME:
+                        return registroAmbienteGeral.getNome();
+                    case INDEX_CEP:
+                        return registroAmbienteGeral.getCep();
+                    case INDEX_RUA:
+                        return registroAmbienteGeral.getRua();
+                    case INDEX_NUMERO:
+                        return registroAmbienteGeral.getNumero();
+                    case INDEX_BAIRRO:
+                        return registroAmbienteGeral.getBairro();
+                    case INDEX_CIDADE:
+                        return registroAmbienteGeral.getCidade().getNome();
+                    case INDEX_CATEGORIA:
+                        return registroAmbienteGeral.getCategoria().getNome();
+                    case INDEX_QUANTIDADE_EMPRESAS:
+                        return registroAmbienteGeral.getListaEmpresa().size();
+                    default:
+                        return new Object();
+                }
             }
-        }
 
-        @Override
-        public int getRowCount() {
-            return vetorDados.size();
-        }
+            @Override
+            public int getRowCount() {
+                return vetorDados.size();
+            }
 
-        @Override
-        public int getColumnCount() {
-            return nomeColunas.length;
-        }
+            @Override
+            public int getColumnCount() {
+                return nomeColunas.length;
+            }
 }

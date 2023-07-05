@@ -19,11 +19,26 @@ public final class EmpresaDAO implements IGenericDAO<Empresa> {
         }
         return empresaNomes.toArray();
     }
+
+
     public List<Empresa> buscarPorId(Integer id) throws SQLException, ClassNotFoundException {
         EmpresaRepository empresaRepository = new EmpresaRepository();
         List<Empresa> empresas1 = empresaRepository.buscaPorId(id);
         return empresas1;
     }
+
+
+    public Integer buscaQtdEmpresaTotal(){
+        EmpresaRepository empresaRepository = new EmpresaRepository();
+        Integer qtdEmpresaTotal = 0;
+        try {
+            qtdEmpresaTotal = empresaRepository.buscaQtdEmpresa();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return qtdEmpresaTotal;
+    }
+
 
     @Override
     public void salvar(Empresa empresa) {

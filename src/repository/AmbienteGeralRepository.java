@@ -41,8 +41,8 @@ public class AmbienteGeralRepository {
             CategoriaRepository categoriaRepository = new CategoriaRepository();
             ambienteGeral.setCategoria(categoriaRepository.buscaPorId(resultSet.getInt(8)).get(0));
 
-            CidadeRepository cidadeRepository1 = new CidadeRepository();
-            ambienteGeral.setListaEmpresa(cidadeRepository1.buscaPorIdAmbiente(resultSet.getInt(1)));
+            EmpresaRepository empresaRepository = new EmpresaRepository();
+            ambienteGeral.setListaEmpresa(empresaRepository.buscaPorIdAmbiente(resultSet.getInt(1)));
 
             ambientes.add(ambienteGeral);
         }
@@ -75,8 +75,8 @@ public class AmbienteGeralRepository {
             CategoriaRepository categoriaRepository = new CategoriaRepository();
             ambienteGeral.setCategoria(categoriaRepository.buscaPorId(resultSet.getInt(8)).get(0));
 
-            CidadeRepository cidadeRepository1 = new CidadeRepository();
-            ambienteGeral.setListaEmpresa(cidadeRepository1.buscaPorIdAmbiente(resultSet.getInt(1)));
+            EmpresaRepository empresaRepository = new EmpresaRepository();
+            ambienteGeral.setListaEmpresa(empresaRepository.buscaPorIdAmbiente(resultSet.getInt(1)));
 
             ambientes.add(ambienteGeral);
         }
