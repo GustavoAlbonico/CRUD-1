@@ -19,8 +19,8 @@ public class EmpresaRepository {
     public void insere (Empresa empresa) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
 
-        PreparedStatement stmt = connection.prepareStatement("insert into empresa values (?, ?, ?, ?)");
-        stmt.setInt(1, empresa.getId().intValue());
+        PreparedStatement stmt = connection.prepareStatement("insert into empresa values (null, ?, ?, ?)");
+        //stmt.setInt(1, empresa.getId().intValue());
         stmt.setString(2, empresa.getNome());
         stmt.setString(3, empresa.getLogo());
         stmt.setInt(4, empresa.getAmbiente().getId().intValue());
@@ -46,7 +46,7 @@ public class EmpresaRepository {
 
             //FK ambientes
             AmbienteRepository ambienteRepository = new AmbienteRepository();
-            //empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(4)).get(0));
+            empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(4)).get(0));
 
             empresas.add(empresa);
         }
@@ -68,7 +68,7 @@ public class EmpresaRepository {
             empresa.setLogo(resultSet.getString(3));
 
             AmbienteRepository ambienteRepository = new AmbienteRepository();
-            //empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(4)).get(0));
+            empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(4)).get(0));
             empresas.add(empresa);
         }
         connection.close();
