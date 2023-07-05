@@ -116,28 +116,4 @@ public class CidadeRepository {
         System.out.println(i + " linhas atualizadas");
         connection.close();
     }
-
-    //colocar na empresa
-
-    public List<Empresa> buscaPorIdAmbiente(Integer id) throws SQLException, ClassNotFoundException {
-        List<Empresa> empresas = new ArrayList<>();
-        Connection connection = getConnection();
-
-        PreparedStatement stmt = connection.prepareStatement("select * from empresa where ambiente_id = ?");
-        stmt.setInt(1, id);
-        ResultSet resultSet = stmt.executeQuery();
-
-        while (resultSet.next()) {
-            Empresa empresa = new Empresa();
-
-                empresa.setId(resultSet.getInt(1));
-                empresa.setNome(resultSet.getString(2));
-                empresa.setLogo(resultSet.getString(3));
-
-                empresas.add(empresa);
-
-        }
-        connection.close();
-        return empresas;
-    }
 }

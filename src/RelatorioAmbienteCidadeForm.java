@@ -1,4 +1,5 @@
 import model.AmbienteGeral;
+import model.Cidade;
 import relatorios.RelatorioAmbienteCidade;
 
 
@@ -43,10 +44,10 @@ public class RelatorioAmbienteCidadeForm  extends JPanel {
         add(scroller, BorderLayout.CENTER);
     }
 
-    public static void emitirRelatorio (List<AmbienteGeral> ambienteGerals) {
+    public static void emitirRelatorio (List<AmbienteGeral> ambienteGerals, Cidade cidade) {
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-            JFrame frame = new JFrame("Relatório de Ambientes Cidade");
+            JFrame frame = new JFrame("Relatório de Ambientes Cidade ("+cidade.getNome()+") ("+cidade.getUF()+")");
 
             frame.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent evt) {

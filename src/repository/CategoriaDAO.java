@@ -1,5 +1,6 @@
 package repository;
 
+import model.Ambiente;
 import model.Categoria;
 import model.Cidade;
 
@@ -21,6 +22,18 @@ public final class CategoriaDAO implements IGenericDAO<Categoria>{
         }
 
         return categoriaNomes.toArray();
+    }
+
+    public boolean verificaParents (Categoria categoria){
+        AmbienteDAO ambienteDAO = new AmbienteDAO();
+        List<Ambiente> listaAmbiente = ambienteDAO.buscarTodos();
+
+        for (Ambiente ambiente : listaAmbiente){
+            if (ambiente.getCategoria().getId().equals(categoria.getId())){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

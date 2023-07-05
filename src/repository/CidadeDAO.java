@@ -1,6 +1,7 @@
 package repository;
 
 import com.mysql.cj.xdevapi.Client;
+import model.Ambiente;
 import model.Cidade;
 import model.EstadoEnum;
 
@@ -31,6 +32,18 @@ public final class CidadeDAO implements IGenericDAO<Cidade> {
             }
         }
         return estadoUfFiltradas;
+    }
+
+    public boolean verificaParents (Cidade cidade){
+        AmbienteDAO ambienteDAO = new AmbienteDAO();
+        List<Ambiente> listaAmbiente = ambienteDAO.buscarTodos();
+
+        for (Ambiente ambiente : listaAmbiente){
+            if (ambiente.getCidade().getId().equals(cidade.getId())){
+                return false;
+            }
+        }
+        return true;
     }
 
     public  Object[] findCidadeQTDInArray() throws SQLException, ClassNotFoundException {

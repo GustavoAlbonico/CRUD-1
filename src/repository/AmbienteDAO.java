@@ -2,6 +2,7 @@ package repository;
 
 import model.Ambiente;
 import model.Categoria;
+import model.Empresa;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,6 +33,18 @@ public final class AmbienteDAO implements IGenericDAO<Ambiente>{
             throw new RuntimeException(e);
         }
         return qtdAmbienteTotal;
+    }
+
+    public boolean verificaParents (Ambiente ambiente){
+        EmpresaDAO empresaDAO = new EmpresaDAO();
+        List<Empresa> listaEmpresa = empresaDAO.buscarTodos();
+
+        for (Empresa empresa : listaEmpresa){
+            if (empresa.getAmbiente().getId().equals(ambiente.getId())){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero.">
-      <change afterPath="$PROJECT_DIR$/src/RelatorioAmbienteCidadeForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RelatorioAmbienteGeralForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/AmbienteGeral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteCidade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteGeral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/AmbienteGeralDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/AmbienteGeralRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RelatorioAmbienteCidadeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioAmbienteCidadeForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/CidadeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/CidadeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +151,16 @@
     <MESSAGE value="arrumando main" />
     <MESSAGE value="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero." />
     <option name="LAST_COMMIT_MESSAGE" value="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
