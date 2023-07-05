@@ -23,17 +23,7 @@ public final class CidadeDAO implements IGenericDAO<Cidade> {
     return estadoUf.toArray();
     }
 
-    public static List<EstadoEnum> buscaEstadoEnumBancoDados(Integer posicaoEstado) {
-        List<EstadoEnum> estadoUfFiltradas = new ArrayList<>();
-        for (EstadoEnum estadoEnum : EstadoEnum.values()) {
-            if (estadoEnum.ordinal() == posicaoEstado){
-                estadoUfFiltradas.add(estadoEnum);
-            }
-        }
-        return estadoUfFiltradas;
-    }
-
-    public static List<EstadoEnum> buscarPorNome(Object nome) {
+    public static List<EstadoEnum> buscarPorNomeEstado(Object nome) {
         List<EstadoEnum> estadoUfFiltradas = new ArrayList<>();
         for (EstadoEnum estadoEnum : EstadoEnum.values()) {
             if (estadoEnum.name().contains(nome.toString())) {
