@@ -24,7 +24,7 @@ public class CidadeRepository {
 
 
         stmt.setString(1, cidade.getNome());
-        stmt.setInt(2,cidade.getUF().ordinal());
+        stmt.setString(2,cidade.getUF().toString());
 
         int i = stmt.executeUpdate();
         System.out.println(i + " linhas inseridas");
@@ -45,7 +45,7 @@ public class CidadeRepository {
             Cidade cidade = new Cidade();
             cidade.setId(resultSet.getInt(1));
             cidade.setNome(resultSet.getString(2));
-            estadoEnumAchado = CidadeDAO.buscaEstadoEnumBancoDados(resultSet.getInt(3));
+            estadoEnumAchado = CidadeDAO.buscarPorNomeEstado(resultSet.getString(3));
             cidade.setUF(estadoEnumAchado.get(0));
             cidades.add(cidade);
         }
@@ -67,7 +67,7 @@ public class CidadeRepository {
             Cidade cidade = new Cidade();
             cidade.setId(resultSet.getInt(1));
             cidade.setNome(resultSet.getString(2));
-            estadoEnumAchado = CidadeDAO.buscaEstadoEnumBancoDados(resultSet.getInt(3));
+            estadoEnumAchado = CidadeDAO.buscarPorNomeEstado(resultSet.getString(3));
             cidade.setUF(estadoEnumAchado.get(0));
             cidades.add(cidade);
         }

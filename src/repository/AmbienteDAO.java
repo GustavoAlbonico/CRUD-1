@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AmbienteDAO implements IGenericDAO<Ambiente>{
+public final class AmbienteDAO implements IGenericDAO<Ambiente>{
 
     List<Ambiente> ambientes = new ArrayList<>();
 
