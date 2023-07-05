@@ -2,6 +2,7 @@ package repository;
 
 import model.Ambiente;
 import model.Categoria;
+import model.Cidade;
 import model.Empresa;
 
 import java.sql.SQLException;
@@ -45,6 +46,48 @@ public final class AmbienteDAO implements IGenericDAO<Ambiente>{
             }
         }
         return true;
+    }
+
+    public  Object[] findAmbienteQTDInArray() throws SQLException, ClassNotFoundException {
+        List<Ambiente> ambientes1 = buscarTodos();
+        List<String> cidadeNomes = new ArrayList<>();
+        AmbienteRepository ambienteRepository = new AmbienteRepository();
+
+        for (Ambiente ambiente : ambientes1) {
+            cidadeNomes.add(ambiente.getNome()+" "+"("+ambienteRepository.buscaQtdEmpresaAmbiente(ambiente.getId())+")");
+        }
+        return cidadeNomes.toArray();
+    }
+
+    public List<Ambiente> buscarPorNomeSemQTD(String nome) {
+        List<Ambiente> ambienteFiltrados = new ArrayList<>();
+        List<Ambiente> listaAmbiente = buscarTodos();
+
+        String nomeNovo = "";
+        String parenteses = "(";
+        Integer tamanhoString = 0;
+
+        for (int x = 0; x < nome.length(); x++) {
+            if (nome.charAt(x) == parenteses.charAt(0)) {
+                break;
+            }
+            tamanhoString = tamanhoString + 1;
+        }
+
+        for (Ambiente ambiente : listaAmbiente) {
+            for (int x = 0 ; x < ambiente.getNome().length();x++) {
+                if (x < ambiente.getNome().length() && x < nome.length()) {
+                    if (ambiente.getNome().charAt(x) == nome.charAt(x)) {
+                        nomeNovo = nomeNovo+nome.charAt(x);
+                    }
+                }
+            }
+            if (ambiente.getNome().equals(nomeNovo) && ambiente.getNome().length() == tamanhoString - 1) {
+                ambienteFiltrados.add(ambiente);
+            }
+            nomeNovo = "";
+        }
+        return ambienteFiltrados;
     }
 
     @Override

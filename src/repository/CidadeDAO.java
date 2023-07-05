@@ -50,7 +50,6 @@ public final class CidadeDAO implements IGenericDAO<Cidade> {
         List<Cidade> cidades1 = buscarTodos();
         List<String> cidadeNomes = new ArrayList<>();
         CidadeRepository cidadeRepository = new CidadeRepository();
-        int x = 1;
 
         for (Cidade cidade : cidades1) {
             cidadeNomes.add(cidade.getNome()+" "+"("+cidadeRepository.buscaQtdAmbienteCidade(cidade.getId())+")");

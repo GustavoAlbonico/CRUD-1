@@ -142,4 +142,19 @@ public class AmbienteRepository {
         connection.close();
     }
 
+    public Integer buscaQtdEmpresaAmbiente(Integer id) throws SQLException, ClassNotFoundException {
+        Integer QtdEmpresa = 0;
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("select count(*) from ambiente a, empresa em where a.id = em.ambiente_id and a.id = ? group by a.nome;");
+        stmt.setInt(1, id);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+            QtdEmpresa = resultSet.getInt(1);
+        }
+        connection.close();
+        return QtdEmpresa;
+    }
+
 }

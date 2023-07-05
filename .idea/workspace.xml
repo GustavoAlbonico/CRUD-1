@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero.">
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio">
+      <change afterPath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/relatorios/RelatorioEmpresaGeral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RelatorioAmbienteCidadeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioAmbienteCidadeForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteGeral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteGeral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/CidadeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688531179584</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio">
+      <created>1688589484850</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688589484850</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +160,8 @@
     <MESSAGE value="foi alterado a o busca, buscaPorID, da Cidade&#10;altera a ordem dos botoôes e adicionado contato no menu principal" />
     <MESSAGE value="arrumando main" />
     <MESSAGE value="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero." />
+    <MESSAGE value="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

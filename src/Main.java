@@ -597,7 +597,7 @@ public class Main {
                 chamaMenuRelatoriosAmbiente();
                 break;
             case 1: //chamaRelatorioEmpresa
-              //  chamaRelatorioEmpresa();
+               chamaMenuRelatorioEmpresa();
                 break;
             case 2: //Voltar
                 chamaMenuPrincipal();
@@ -605,10 +605,11 @@ public class Main {
         }
     }
 
+
     public static void chamaMenuRelatoriosAmbiente() throws SQLException, ClassNotFoundException {
 
         String[] opcoesMenuRelatoriosAmbiente = {"Geral", "Cidade","Voltar"};
-        int menuRelatoriosAmbiente = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+        int menuRelatoriosAmbiente = JOptionPane.showOptionDialog(null, "Escolha uma opção para filtrar:",
                 "Menu Relatórios Ambiente ("+getAmbienteDAO().buscaQtdAmbienteTotal()+")",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuRelatoriosAmbiente, opcoesMenuRelatoriosAmbiente[0]);
 
@@ -624,12 +625,11 @@ public class Main {
                 break;
         }
     }
-
     private static void chamaRelatorioGeralAmbiente() throws SQLException, ClassNotFoundException {
 
         if (getAmbienteGeralDAO().buscarTodos().size() < 1) {
             JOptionPane.showConfirmDialog(null, "Não foi realizada nenhum cadastro de ambiente até o momento !!!",
-                    "Relatório Compras", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                    "Relatório Ambiente Geral", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
             chamaMenuRelatoriosAmbiente();
             return;
         }
@@ -669,6 +669,52 @@ public class Main {
         }
     }
 
+    public static void chamaMenuRelatorioEmpresa () throws SQLException, ClassNotFoundException {
+
+        String[] opcoesMenuRelatoriosAmbiente = {"Geral", "Ambiente","Contato","Voltar"};
+        int menuRelatoriosAmbiente = JOptionPane.showOptionDialog(null, "Escolha uma opção para filtrar:",
+                "Menu Relatórios Empresa ("+getEmpresaDAO().buscaQtdEmpresaTotal()+")",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuRelatoriosAmbiente, opcoesMenuRelatoriosAmbiente[0]);
+
+        switch (menuRelatoriosAmbiente) {
+            case 0: //RelatorioGeralEmpresa
+                chamaRelatorioGeralEmpresa();
+                break;
+            case 1: //RelatorioAmbienteEmpresa
+                chamaRelatorioAmbienteEmpresa();
+                break;
+            case 2: //chamaRelatorioContato
+                // chamaRelatorioContato();
+                break;
+            case 3: //Voltar
+                chamaMenuRelatorio();
+                break;
+        }
+    }
+    private static void chamaRelatorioGeralEmpresa() throws SQLException, ClassNotFoundException {
+
+        if (getEmpresaDAO().buscarTodos().size() < 1) {
+            JOptionPane.showConfirmDialog(null, "Não foi realizada nenhum cadastro de empresa até o momento !!!",
+                    "Relatório Empresa Geral", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+            chamaMenuRelatoriosAmbiente();
+            return;
+        }
+
+        List<Empresa> empresas = getEmpresaDAO().buscarTodos();
+        RelatorioEmpresaGeralForm.emitirRelatorio(empresas);
+    }
+
+    private static void chamaRelatorioAmbienteEmpresa() throws SQLException, ClassNotFoundException {
+
+        Object[] selectionValuesAmbiente = getAmbienteDAO().findAmbienteQTDInArray();
+        String initialSelectionAmbiente = (String) selectionValuesAmbiente[0];
+        Object selectionCidade = JOptionPane.showInputDialog(null, "Selecione a cidade que deseja visualizar relatorio:",
+                "Menu Relatorio Ambiente Cidade", JOptionPane.DEFAULT_OPTION, null, selectionValuesAmbiente, initialSelectionAmbiente);
+        List<Ambiente> ambientes = getAmbienteDAO().buscarPorNomeSemQTD((String) selectionCidade);
+
+
+    }
+
     public static CidadeDAO getCidadeDAO() {
         CidadeDAO cidadeDAO = new CidadeDAO();
         return cidadeDAO;
@@ -688,5 +734,11 @@ public class Main {
         AmbienteGeralDAO ambienteGeralDAO = new AmbienteGeralDAO();
         return ambienteGeralDAO;
     }
+
+    public static EmpresaDAO getEmpresaDAO() {
+        EmpresaDAO empresaDAO = new EmpresaDAO();
+        return empresaDAO;
+    }
+
 }
 

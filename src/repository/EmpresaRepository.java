@@ -118,4 +118,22 @@ public class EmpresaRepository {
         connection.close();
         return empresas;
     }
+
+    //BUSCA QUANTIDADE DE EMPRESA
+    public Integer buscaQtdEmpresa() throws SQLException, ClassNotFoundException {
+        Integer qtdEmpresa = 0;
+        Connection connection = getConnection();
+
+
+        PreparedStatement stmt = connection.prepareStatement("select count(*) from empresa;");
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+
+            qtdEmpresa = resultSet.getInt(1);
+        }
+        connection.close();
+        return qtdEmpresa;
+    }
+
 }
