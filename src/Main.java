@@ -696,7 +696,7 @@ public class Main {
         if (getEmpresaDAO().buscarTodos().size() < 1) {
             JOptionPane.showConfirmDialog(null, "Não foi realizada nenhum cadastro de empresa até o momento !!!",
                     "Relatório Empresa Geral", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
-            chamaMenuRelatoriosAmbiente();
+            chamaMenuRelatorioEmpresa();
             return;
         }
 
@@ -706,11 +706,35 @@ public class Main {
 
     private static void chamaRelatorioAmbienteEmpresa() throws SQLException, ClassNotFoundException {
 
+        if (getAmbienteDAO().findAmbienteQTDInArray().length < 1) {
+            JOptionPane.showConfirmDialog(null, "Não existe ambiente cadastrado !!!",
+                    "Relatório Empresa Ambiente", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+            chamaMenuRelatorioEmpresa();
+            return;
+        }
+        try {
+
         Object[] selectionValuesAmbiente = getAmbienteDAO().findAmbienteQTDInArray();
         String initialSelectionAmbiente = (String) selectionValuesAmbiente[0];
         Object selectionCidade = JOptionPane.showInputDialog(null, "Selecione a cidade que deseja visualizar relatorio:",
-                "Menu Relatorio Ambiente Cidade", JOptionPane.DEFAULT_OPTION, null, selectionValuesAmbiente, initialSelectionAmbiente);
+                "Relatório Empresa Ambiente", JOptionPane.DEFAULT_OPTION, null, selectionValuesAmbiente, initialSelectionAmbiente);
         List<Ambiente> ambientes = getAmbienteDAO().buscarPorNomeSemQTD((String) selectionCidade);
+
+
+
+        if (getEmpresaDAO().buscarTodosPorAmbiente(ambientes.get(0).getId()).size() < 1) {
+            JOptionPane.showConfirmDialog(null, "Não foi realizado nenhum cadastro de empresa nesse ambiente até o momento !!!",
+                    "Relatório Empresa Ambiente", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+            chamaMenuRelatorioEmpresa();
+            return;
+        }
+
+        List<Empresa> empresaAmbiente = getEmpresaDAO().buscarTodosPorAmbiente(ambientes.get(0).getId());
+        RelatorioEmpresaAmbienteForm.emitirRelatorio(empresaAmbiente,ambientes.get(0));
+
+        } catch (NullPointerException e) {
+            chamaMenuRelatorioEmpresa();
+    }
 
 
     }

@@ -1,5 +1,6 @@
 package repository;
 
+import model.AmbienteGeral;
 import model.Empresa;
 
 import java.sql.SQLException;
@@ -37,6 +38,17 @@ public final class EmpresaDAO implements IGenericDAO<Empresa> {
             throw new RuntimeException(e);
         }
         return qtdEmpresaTotal;
+    }
+
+    public List<Empresa> buscarTodosPorAmbiente(Integer id){
+
+        EmpresaRepository empresaRepository = new EmpresaRepository();
+        try {
+            empresas = empresaRepository.buscaPorAmbiente(id);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return empresas;
     }
 
 

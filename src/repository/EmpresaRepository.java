@@ -1,5 +1,6 @@
 package repository;
 
+import model.AmbienteGeral;
 import model.Contato;
 import model.Empresa;
 
@@ -134,6 +135,32 @@ public class EmpresaRepository {
         }
         connection.close();
         return qtdEmpresa;
+    }
+
+    public List<Empresa> buscaPorAmbiente(Integer id) throws SQLException, ClassNotFoundException {
+        List<Empresa> empresas = new ArrayList<>();
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("select * from empresa where ambiente_id = ?;");
+        stmt.setInt(1, id);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+
+            Empresa empresa = new Empresa();
+            empresa.setId(resultSet.getInt(1));
+            empresa.setNome(resultSet.getString(2));
+            empresa.setLogo(resultSet.getString(3));
+            empresa.setSite(resultSet.getString(4));
+
+            AmbienteRepository ambienteRepository = new AmbienteRepository();
+            empresa.setAmbiente(ambienteRepository.buscaPorId(resultSet.getInt(5)).get(0));
+
+            empresas.add(empresa);
+        }
+
+        connection.close();
+        return empresas;
     }
 
 }
