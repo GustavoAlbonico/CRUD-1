@@ -2,13 +2,13 @@ package model;
 
 public class EmpresaContato {
     private Integer id;
-    private String perfil;
+    private String descricao;
     private Empresa empresa;
     private Contato contato;
 
-    public EmpresaContato(Integer id, String perfil, Empresa empresa, Contato contato) {
+    public EmpresaContato(Integer id, String descricao, Empresa empresa, Contato contato) {
         this.id = id;
-        this.perfil = perfil;
+        this.descricao = descricao;
         this.empresa = empresa;
         this.contato = contato;
     }
@@ -23,12 +23,12 @@ public class EmpresaContato {
         this.id = id;
     }
 
-    public String getPerfil() {
-        return perfil;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Empresa getEmpresa() {
