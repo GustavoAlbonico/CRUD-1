@@ -83,4 +83,19 @@ public class CidadeRepository {
         stmt.executeUpdate();
         connection.close();
     }
+
+    public void update(Cidade cidade) throws SQLException, ClassNotFoundException {
+
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("update cidade " +
+                "SET nome = ?, uf = ? WHERE id = ?");
+        stmt.setString(1, cidade.getNome());
+        stmt.setString(2, cidade.getUF().toString());
+        stmt.setInt(3, cidade.getId().intValue());
+
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linhas atualizadas");
+        connection.close();
+    }
 }

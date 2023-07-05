@@ -22,6 +22,10 @@ public class Ambiente {
         this.categoria = categoria;
     }
 
+    public Ambiente(Integer id, String nome, String cep,String rua, String bairro, Cidade cidade, Categoria categoria) {
+        this(id,nome,cep,rua,null,bairro,cidade,categoria);
+    }
+
     public Ambiente() {
     }
 

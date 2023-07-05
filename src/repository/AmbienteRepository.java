@@ -95,4 +95,35 @@ public class AmbienteRepository {
         connection.close();
         return ambientes;
     }
+
+    public void delete(Ambiente ambiente) throws SQLException, ClassNotFoundException {
+        Connection connection = getConnection();
+        PreparedStatement stmt = connection.prepareStatement("DELETE FROM ambiente" +
+                " WHERE id = ?");
+        stmt.setInt(1, ambiente.getId().intValue());
+        stmt.executeUpdate();
+        connection.close();
+    }
+
+    public void update(Ambiente ambiente) throws SQLException, ClassNotFoundException {
+
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("update ambiente " +
+                "SET nome = ?, cep = ?, rua = ?, numero = ?, bairro = ?, cidade_id = ?, categoria_id = ? WHERE id = ?");
+
+        stmt.setString(1, ambiente.getNome());
+        stmt.setString(2, ambiente.getCep());
+        stmt.setString(3, ambiente.getRua());
+        stmt.setString(4, ambiente.getNumero());
+        stmt.setString(5, ambiente.getBairro());
+        stmt.setInt(6, ambiente.getCidade().getId());
+        stmt.setInt(7, ambiente.getCategoria().getId());
+        stmt.setInt(8, ambiente.getId().intValue());
+
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linhas atualizadas");
+        connection.close();
+    }
+
 }

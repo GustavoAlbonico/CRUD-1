@@ -11,20 +11,37 @@ public final class AmbienteDAO implements IGenericDAO<Ambiente>{
 
     List<Ambiente> ambientes = new ArrayList<>();
 
+
+    public Object[] findAmbienteInArray() {
+        List<Ambiente> ambientes1 = buscarTodos();
+        List<String> ambientesNomes = new ArrayList<>();
+
+        for (Ambiente ambiente : ambientes1) {
+            ambientesNomes.add(ambiente.getNome());
+        }
+
+        return ambientesNomes.toArray();
+    }
+
     @Override
     public void salvar(Ambiente ambiente) {
         AmbienteRepository repository =  new AmbienteRepository();
 
         try {
-            repository.insere(ambiente);
+            if (ambiente.getId() != null){
+                repository.update(ambiente);
+            } else {
+                repository.insere(ambiente);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void remover(Ambiente objeto) throws SQLException, ClassNotFoundException {
-
+    public void remover(Ambiente ambiente) throws SQLException, ClassNotFoundException {
+        AmbienteRepository ambienteRepository = new AmbienteRepository();
+        ambienteRepository.delete(ambiente);
     }
 
     @Override
