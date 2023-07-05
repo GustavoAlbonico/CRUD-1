@@ -69,4 +69,14 @@ public class CategoriaRepository {
         connection.close();
         return cidades;
     }
+
+    public void delete(Categoria categoria) throws SQLException, ClassNotFoundException {
+        Connection connection = getConnection();
+        PreparedStatement stmt = connection.prepareStatement("DELETE FROM cidade" +
+                " WHERE id = ?");
+        stmt.setInt(1, categoria.getId().intValue());
+        stmt.executeUpdate();
+        connection.close();
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CategoriaDAO implements IGenericDAO<Categoria>{
+public final class CategoriaDAO implements IGenericDAO<Categoria>{
 
     List<Categoria> categorias = new ArrayList<>();
 
@@ -36,8 +36,9 @@ public class CategoriaDAO implements IGenericDAO<Categoria>{
     }
 
     @Override
-    public void remover(Categoria objeto) throws SQLException, ClassNotFoundException {
-
+    public void remover(Categoria categoria) throws SQLException, ClassNotFoundException {
+        CategoriaRepository categoriaRepository = new CategoriaRepository();
+        categoriaRepository.delete(categoria);
     }
 
     @Override
