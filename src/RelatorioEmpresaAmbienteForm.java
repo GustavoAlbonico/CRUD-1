@@ -1,6 +1,6 @@
-import model.AmbienteGeral;
+import model.Ambiente;
 import model.Empresa;
-import relatorios.RelatorioAmbienteGeral;
+import relatorios.RelatorioEmpresaAmbiente;
 import relatorios.RelatorioEmpresaGeral;
 
 import javax.swing.*;
@@ -12,31 +12,31 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
-public class RelatorioEmpresaGeralForm extends JPanel {
+public class RelatorioEmpresaAmbienteForm  extends JPanel{
 
     private static final long serialVersionUID = 1L;
 
     public static final String[] nomeColunas =
-            {"Nome", "Site", "Ambiente", ""};
+            {"Nome", "Site", ""};
 
     protected JTable table;
     protected JScrollPane scroller;
-    protected RelatorioEmpresaGeral tabela;
+    protected RelatorioEmpresaAmbiente tabela;
 
-    public RelatorioEmpresaGeralForm(Vector<Empresa> vetorDados) {
+    public RelatorioEmpresaAmbienteForm(Vector<Empresa> vetorDados) {
         iniciarComponentes(vetorDados);
     }
 
 
     public void iniciarComponentes(Vector<Empresa> vetorDados) {
-        tabela = new RelatorioEmpresaGeral(nomeColunas, vetorDados);
+        tabela = new RelatorioEmpresaAmbiente(nomeColunas, vetorDados);
         table = new JTable();
         table.setModel(tabela);
         table.setSurrendersFocusOnKeystroke(true);
         scroller = new javax.swing.JScrollPane(table);
-        table.setPreferredScrollableViewportSize(new java.awt.Dimension(800, 300));
+        table.setPreferredScrollableViewportSize(new java.awt.Dimension(600, 400));
 
-        TableColumn colunaEscondida = table.getColumnModel().getColumn(RelatorioEmpresaGeral.INDEX_ESCONDIDO);
+        TableColumn colunaEscondida = table.getColumnModel().getColumn(RelatorioEmpresaAmbiente.INDEX_ESCONDIDO);
         colunaEscondida.setMinWidth(2);
         colunaEscondida.setPreferredWidth(2);
         colunaEscondida.setMaxWidth(2);
@@ -44,10 +44,10 @@ public class RelatorioEmpresaGeralForm extends JPanel {
         add(scroller, BorderLayout.CENTER);
     }
 
-    public static void emitirRelatorio (List<Empresa> empresasGeral) {
+    public static void emitirRelatorio (List<Empresa> empresasAmbiente, Ambiente ambiente) {
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-            JFrame frame = new JFrame("Relatório de Empresas Geral");
+            JFrame frame = new JFrame("Relatório de Empresas Ambiente ("+ambiente.getNome()+")");
 
             frame.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent evt) {
@@ -62,11 +62,11 @@ public class RelatorioEmpresaGeralForm extends JPanel {
                 }
             });
             Vector<Empresa> vetorDados = new Vector<Empresa>();
-            for (Empresa empresa : empresasGeral) {
+            for (Empresa empresa : empresasAmbiente) {
                 vetorDados.add(empresa);
             }
 
-            frame.getContentPane().add(new RelatorioEmpresaGeralForm(vetorDados));
+            frame.getContentPane().add(new RelatorioEmpresaAmbienteForm(vetorDados));
             frame.pack();
             frame.setVisible(true);
             frame.setLocationRelativeTo(null);

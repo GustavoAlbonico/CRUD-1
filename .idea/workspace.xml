@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio">
-      <change afterPath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/relatorios/RelatorioEmpresaGeral.java" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main.">
+      <change afterPath="$PROJECT_DIR$/src/RelatorioEmpresaAmbienteForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/relatorios/RelatorioEmpresaAmbiente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteGeral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteGeral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/CidadeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
     </list>
@@ -53,18 +50,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/CRUD-1/mysql-connector-java-8.0.26.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.kotlinCompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/User/Desktop/CRUD-1/mysql-connector-java-8.0.26.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.kotlinCompiler"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -137,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688589484850</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main.">
+      <created>1688593808453</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688593808453</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,7 +164,8 @@
     <MESSAGE value="arrumando main" />
     <MESSAGE value="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero." />
     <MESSAGE value="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio" />
+    <MESSAGE value="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main." />
+    <option name="LAST_COMMIT_MESSAGE" value="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
