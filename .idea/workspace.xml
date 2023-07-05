@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main.">
-      <change afterPath="$PROJECT_DIR$/src/RelatorioEmpresaAmbienteForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/relatorios/RelatorioEmpresaAmbiente.java" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero.">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,17 +46,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/CRUD-1/mysql-connector-java-8.0.26.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.kotlinCompiler"
-  }
-}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="CRUD-Ambiente-de-Inovacao" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -153,6 +152,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primeiro commit" />

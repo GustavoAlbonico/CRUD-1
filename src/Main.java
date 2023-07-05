@@ -25,7 +25,7 @@ public class Main {
                     chamaMenuCadastroCategoria();
                     break;
                 case 2: //menuCadastroContato
-                  //  chamaMenuCadastroContato();
+                    chamaMenuCadastroContato();
                     break;
                 case 3: //menuCadastroAmbiente
                     chamaMenuCadastroAmbiente();
@@ -284,33 +284,110 @@ public class Main {
         }
         try {
 
-        Object[] selectionValuesCategoria = getCategoriaDAO().findCategoriaInArray();
-        String initialSelectionCategoria = (String) selectionValuesCategoria[0];
-        Object selectionCategoria = JOptionPane.showInputDialog(null, "Selecione a categoria que deseja remover:",
-                "Remover Categoria", JOptionPane.DEFAULT_OPTION, null, selectionValuesCategoria, initialSelectionCategoria);
-        List<Categoria> categoria = getCategoriaDAO().buscarPorNome((String) selectionCategoria);
+            Object[] selectionValuesCategoria = getCategoriaDAO().findCategoriaInArray();
+            String initialSelectionCategoria = (String) selectionValuesCategoria[0];
+            Object selectionCategoria = JOptionPane.showInputDialog(null, "Selecione a categoria que deseja remover:",
+                    "Remover Categoria", JOptionPane.DEFAULT_OPTION, null, selectionValuesCategoria, initialSelectionCategoria);
+            List<Categoria> categoria = getCategoriaDAO().buscarPorNome((String) selectionCategoria);
 
-        if (getCategoriaDAO().verificaParents(categoria.get(0)) == false){
-            JOptionPane.showConfirmDialog(null, "Não é possivel remover uma categoria que pertence a um ambiente !!!",
-                    "Remover Cidade", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+            if (getCategoriaDAO().verificaParents(categoria.get(0)) == false) {
+                JOptionPane.showConfirmDialog(null, "Não é possivel remover uma categoria que pertence a um ambiente !!!",
+                        "Remover Cidade", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroCategoria();
+                return;
+            }
+
+            getCategoriaDAO().remover(categoria.get(0));
+
+            JOptionPane.showConfirmDialog(null, "Categoria removida com sucesso!",
+                    "Remover Categoria", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
             chamaMenuCadastroCategoria();
-            return;
+
+        } catch (NullPointerException e) {
+            chamaMenuCadastroCategoria();
+        }
+    }
+
+
+        private static void chamaMenuCadastroContato() throws SQLException, ClassNotFoundException {
+
+            String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
+            int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+                    "Menu Cadastro Contato",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
+
+            switch (menuCadastro) {
+                case 0: //CadastroCidade
+                    chamaCadastroContato();
+                    break;
+                case 1: //EditarCidade
+                    chamaEditarContato();
+                    break;
+                case 2: //RemoverCidade
+                    chamaRemoverContato();
+                    break;
+                case 3: //Voltar
+                    chamaMenuPrincipal();
+                    break;
+            }
         }
 
-        getCategoriaDAO().remover(categoria.get(0));
+        private static void chamaCadastroContato()throws SQLException, ClassNotFoundException {
 
-        JOptionPane.showConfirmDialog(null, "Categoria removida com sucesso!",
-                "Remover Categoria", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+            String nomeContato = JOptionPane.showInputDialog(null, "Informe o nome da contato:",
+                    "Cadastro Contato", JOptionPane.DEFAULT_OPTION);
 
-        chamaMenuCadastroCategoria();
+            Contato contato = new Contato(null,nomeContato);
 
-    } catch (NullPointerException e) {
-        chamaMenuCadastroCategoria();
-    }
+            getContatoDAO().salvar(contato);
 
-    }
+            JOptionPane.showConfirmDialog(null, "Contato cadastrado com sucesso!",
+                    "Cadastro Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
 
-    private static void chamaMenuCadastroAmbiente() throws SQLException, ClassNotFoundException {
+            chamaMenuCadastroContato();
+
+        }
+
+        private static void chamaEditarContato() throws SQLException, ClassNotFoundException {
+
+            Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
+            String initialSelectionContato = (String) selectionValuesContato[0];
+            Object selectionContato = JOptionPane.showInputDialog(null, "Selecione o contato que deseja editar:",
+                    "Editar Contato", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato, initialSelectionContato);
+            List<Contato> contatosEdit = getContatoDAO().buscarPorNome((String) selectionContato);
+
+            Object nomeContato = JOptionPane.showInputDialog(null, "Informe o nome da contato:",
+                    "Editar Contato", JOptionPane.DEFAULT_OPTION, null, null, contatosEdit.get(0).getNome());
+
+
+            Contato contato = new Contato(contatosEdit.get(0).getId(),nomeContato.toString());
+
+            getContatoDAO().salvar(contato);
+
+            JOptionPane.showConfirmDialog(null, "Cadastro editado com sucesso!",
+                    "Editar Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+            chamaMenuCadastroContato();
+        }
+        private  static void chamaRemoverContato() throws SQLException, ClassNotFoundException{
+
+            Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
+            String initialSelectionContato = (String) selectionValuesContato[0];
+            Object selectionContato = JOptionPane.showInputDialog(null, "Selecione o contato que deseja remover:",
+                    "Remover Contato", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato, initialSelectionContato);
+            List<Contato> contatos = getContatoDAO().buscarPorNome((String) selectionContato);
+
+            getContatoDAO().remover(contatos.get(0));
+
+            JOptionPane.showConfirmDialog(null, "Contato removido com sucesso!",
+                    "Remover Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+            chamaMenuCadastroContato();
+
+        }
+
+        private static void chamaMenuCadastroAmbiente() throws SQLException, ClassNotFoundException {
 
         String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
         int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
@@ -762,6 +839,11 @@ public class Main {
     public static EmpresaDAO getEmpresaDAO() {
         EmpresaDAO empresaDAO = new EmpresaDAO();
         return empresaDAO;
+    }
+
+    public static ContatoDAO getContatoDAO() {
+        ContatoDAO contatoDAO = new ContatoDAO();
+        return contatoDAO;
     }
 
 }
