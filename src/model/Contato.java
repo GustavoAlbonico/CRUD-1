@@ -2,16 +2,14 @@ package model;
 
 public class Contato {
     private Integer id;
-    private ContatoEnum tipoContato;
-    private String descricao;
-    private Empresa empresa;
+   private String nome;
 
-//    public Contato(Integer id, ContatoEnum tipoContato, String descricao, Empresa empresa) {
-//        this.id = id;
-//        this.tipoContato = tipoContato;
-//        this.descricao = descricao;
-//        this.empresa = empresa;
-//    }
+    public Contato(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public Contato(){}
 
     public Integer getId() {
         return id;
@@ -21,27 +19,11 @@ public class Contato {
         this.id = id;
     }
 
-    public ContatoEnum getTipoContato() {
-        return tipoContato;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTipoContato(ContatoEnum tipoContato) {
-        this.tipoContato = tipoContato;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
