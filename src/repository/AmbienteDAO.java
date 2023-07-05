@@ -23,6 +23,17 @@ public final class AmbienteDAO implements IGenericDAO<Ambiente>{
         return ambientesNomes.toArray();
     }
 
+    public Integer buscaQtdAmbienteTotal(){
+        AmbienteRepository ambienteRepository = new AmbienteRepository();
+        Integer qtdAmbienteTotal = 0;
+        try {
+            qtdAmbienteTotal = ambienteRepository.buscaQtdAmbiente();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return qtdAmbienteTotal;
+    }
+
     @Override
     public void salvar(Ambiente ambiente) {
         AmbienteRepository repository =  new AmbienteRepository();

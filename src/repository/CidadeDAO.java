@@ -33,6 +33,18 @@ public final class CidadeDAO implements IGenericDAO<Cidade> {
         return estadoUfFiltradas;
     }
 
+    public  Object[] findCidadeQTDInArray() throws SQLException, ClassNotFoundException {
+        List<Cidade> cidades1 = buscarTodos();
+        List<String> cidadeNomes = new ArrayList<>();
+        CidadeRepository cidadeRepository = new CidadeRepository();
+        int x = 1;
+
+        for (Cidade cidade : cidades1) {
+            cidadeNomes.add(cidade.getNome()+" "+"("+cidadeRepository.buscaQtdAmbienteCidade(cidade.getId())+")");
+        }
+        return cidadeNomes.toArray();
+    }
+
     public Object[] findCidadeInArray() {
         List<Cidade> cidade = buscarTodos();
         List<String> cidadeNomes = new ArrayList<>();
@@ -65,6 +77,37 @@ public final class CidadeDAO implements IGenericDAO<Cidade> {
         CidadeRepository cidadeRepository = new CidadeRepository();
         cidadeRepository.delete(cidade);
 
+    }
+
+    public List<Cidade> buscarPorNomeSemQTD(String nome) {
+        List<Cidade> produtosFiltradas = new ArrayList<>();
+        List<Cidade> listaCidades = buscarTodos();
+
+        String nomeNovo = "";
+        String parenteses = "(";
+        Integer tamanhoString = 0;
+
+        for (int x = 0; x < nome.length(); x++) {
+            if (nome.charAt(x) == parenteses.charAt(0)) {
+                break;
+            }
+            tamanhoString = tamanhoString + 1;
+        }
+
+        for (Cidade cidade : listaCidades) {
+            for (int x = 0 ; x < cidade.getNome().length();x++) {
+                if (x < cidade.getNome().length() && x < nome.length()) {
+                    if (cidade.getNome().charAt(x) == nome.charAt(x)) {
+                        nomeNovo = nomeNovo+nome.charAt(x);
+                    }
+                }
+            }
+            if (cidade.getNome().equals(nomeNovo) && cidade.getNome().length() == tamanhoString - 1) {
+                produtosFiltradas.add(cidade);
+            }
+            nomeNovo = "";
+        }
+        return produtosFiltradas;
     }
 
     @Override

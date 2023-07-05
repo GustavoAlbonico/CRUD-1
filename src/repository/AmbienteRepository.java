@@ -96,6 +96,22 @@ public class AmbienteRepository {
         return ambientes;
     }
 
+    public Integer buscaQtdAmbiente() throws SQLException, ClassNotFoundException {
+        Integer qtdAmbiente = 0;
+        Connection connection = getConnection();
+
+
+        PreparedStatement stmt = connection.prepareStatement("select count(*) from ambiente;");
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+
+            qtdAmbiente = resultSet.getInt(1);
+        }
+        connection.close();
+        return qtdAmbiente;
+    }
+
     public void delete(Ambiente ambiente) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM ambiente" +
