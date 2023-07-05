@@ -28,7 +28,11 @@ public final class CategoriaDAO implements IGenericDAO<Categoria>{
         CategoriaRepository repository =  new CategoriaRepository();
 
         try {
-            repository.insere(categoria);
+            if (categoria.getId() != null){
+                repository.update(categoria);
+            }else{
+                repository.insere(categoria);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
