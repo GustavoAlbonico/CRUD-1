@@ -49,7 +49,11 @@ public final class CidadeDAO implements IGenericDAO<Cidade> {
         CidadeRepository repository =  new CidadeRepository();
 
         try {
-            repository.insere(cidade);
+            if (cidade.getId() != null){
+                repository.update(cidade);
+            } else {
+                repository.insere(cidade);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
