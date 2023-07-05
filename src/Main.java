@@ -1,11 +1,5 @@
-import model.Ambiente;
-import model.Categoria;
-import model.Cidade;
-import model.EstadoEnum;
-import repository.AmbienteDAO;
-import repository.CategoriaDAO;
-import repository.CidadeDAO;
-import repository.CidadeRepository;
+import model.*;
+import repository.*;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -18,7 +12,7 @@ public class Main {
     }
 
         private static void chamaMenuPrincipal() throws SQLException, ClassNotFoundException {
-            String[] opcoesMenuCadastro = {"Cidade", "Categoria","Contato","Ambiente","Empresa","Sair"};
+            String[] opcoesMenuCadastro = {"Cidade", "Categoria","Contato","Ambiente","Empresa","Relatórios","Sair"};
             int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
                     "Menu Cadastros",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
@@ -39,7 +33,10 @@ public class Main {
                 case 4: //menuCadastroEmpresa
                    // chamaMenuCadastroEmpresa();
                     break;
-                case 5: //Sair
+                case 5: //menuRelatorios
+                    chamaMenuRelatorio();
+                    break;
+                case 6: //Sair
                     System.exit(0);
                     break;
             }
@@ -357,6 +354,66 @@ public class Main {
         chamaMenuCadastroAmbiente();
 
     }
+
+    private static void chamaMenuRelatorio() throws SQLException, ClassNotFoundException {
+
+        String[] opcoesMenuRelatorios = {"Ambiente", "Empresa","Voltar"};
+        int menuRelatorios = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+                "Menu Relatórios",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuRelatorios, opcoesMenuRelatorios[0]);
+
+        switch (menuRelatorios) {
+            case 0: //chamaMenuRelatoriosAmbiente
+                chamaMenuRelatoriosAmbiente();
+                break;
+            case 1: //chamaRelatorioEmpresa
+              //  chamaRelatorioEmpresa();
+                break;
+            case 2: //Voltar
+                chamaMenuPrincipal();
+                break;
+        }
+    }
+
+    public static void chamaMenuRelatoriosAmbiente() throws SQLException, ClassNotFoundException {
+
+        String[] opcoesMenuRelatoriosAmbiente = {"Geral", "Cidade","Voltar"};
+        int menuRelatoriosAmbiente = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+                "Menu Relatórios Ambiente ("+getAmbienteDAO().buscaQtdAmbienteTotal()+")",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuRelatoriosAmbiente, opcoesMenuRelatoriosAmbiente[0]);
+
+        switch (menuRelatoriosAmbiente) {
+            case 0: //RelatorioGeralAmbiente
+                     chamaRelatorioGeralAmbiente();
+                break;
+            case 1: //RelatorioCidadeAmbiente
+                     chamaRelatorioCidadeAmbiente();
+                break;
+            case 2: //Voltar
+                chamaMenuRelatorio();
+                break;
+        }
+    }
+
+    private static void chamaRelatorioGeralAmbiente(){
+        List<AmbienteGeral> ambienteGerals = getAmbienteGeralDAO().buscarTodos();
+        RelatorioAmbienteGeralForm.emitirRelatorio(ambienteGerals);
+    }
+
+    private static void chamaRelatorioCidadeAmbiente() throws SQLException, ClassNotFoundException {
+
+        Object[] selectionValuesCidade = getCidadeDAO().findCidadeQTDInArray();
+        String initialSelectionCidade = (String) selectionValuesCidade[0];
+        Object selectionCidade = JOptionPane.showInputDialog(null, "Selecione a cidade que deseja visualizar relatorio:",
+                "Menu Relatorio Ambiente", JOptionPane.DEFAULT_OPTION, null, selectionValuesCidade, initialSelectionCidade);
+        List<Cidade> cidades = getCidadeDAO().buscarPorNomeSemQTD((String) selectionCidade);
+
+        List<AmbienteGeral> ambienteCidade = getAmbienteGeralDAO().buscarTodosPorCidade(cidades.get(0).getId());
+        RelatorioAmbienteCidadeForm.emitirRelatorio(ambienteCidade);
+    }
+
+
+
     public static CidadeDAO getCidadeDAO() {
         CidadeDAO cidadeDAO = new CidadeDAO();
         return cidadeDAO;
@@ -370,5 +427,10 @@ public class Main {
     public static AmbienteDAO getAmbienteDAO() {
         AmbienteDAO ambienteDAO = new AmbienteDAO();
         return ambienteDAO;
+    }
+
+    public static AmbienteGeralDAO getAmbienteGeralDAO() {
+        AmbienteGeralDAO ambienteGeralDAO = new AmbienteGeralDAO();
+        return ambienteGeralDAO;
     }
     }

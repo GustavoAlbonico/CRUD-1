@@ -1,6 +1,7 @@
 package repository;
 
 import model.Cidade;
+import model.Empresa;
 import model.EstadoEnum;
 
 import java.sql.*;
@@ -54,6 +55,23 @@ public class CidadeRepository {
         return cidades;
     }
 
+    public Integer buscaQtdAmbienteCidade(Integer id) throws SQLException, ClassNotFoundException {
+        Integer QtdAmbiente = 0;
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("select count(*) from ambiente am, cidade c where c.id = am.cidade_id and c.id = ? group by c.nome;");
+        stmt.setInt(1, id);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+            QtdAmbiente = resultSet.getInt(1);
+        }
+        connection.close();
+        return QtdAmbiente;
+    }
+
+
+
     public List<Cidade> buscaPorId(Integer id) throws SQLException, ClassNotFoundException {
         List<Cidade> cidades = new ArrayList<>();
         List<EstadoEnum> estadoEnumAchado;
@@ -97,5 +115,29 @@ public class CidadeRepository {
         int i = stmt.executeUpdate();
         System.out.println(i + " linhas atualizadas");
         connection.close();
+    }
+
+    //colocar na empresa
+
+    public List<Empresa> buscaPorIdAmbiente(Integer id) throws SQLException, ClassNotFoundException {
+        List<Empresa> empresas = new ArrayList<>();
+        Connection connection = getConnection();
+
+        PreparedStatement stmt = connection.prepareStatement("select * from empresa where ambiente_id = ?");
+        stmt.setInt(1, id);
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+            Empresa empresa = new Empresa();
+
+                empresa.setId(resultSet.getInt(1));
+                empresa.setNome(resultSet.getString(2));
+                empresa.setLogo(resultSet.getString(3));
+
+                empresas.add(empresa);
+
+        }
+        connection.close();
+        return empresas;
     }
 }
