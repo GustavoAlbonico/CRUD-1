@@ -46,7 +46,7 @@ public class Main {
 
             String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
             int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
-                    "Menu Cadastro Cidade",
+                    "Menu Cidade",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
 
             switch (menuCadastro) {
@@ -185,7 +185,7 @@ public class Main {
 
         String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
         int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
-                "Menu Cadastro Categoria",
+                "Menu Categoria",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
 
         switch (menuCadastro) {
@@ -314,7 +314,7 @@ public class Main {
 
             String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
             int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
-                    "Menu Cadastro Contato",
+                    "Menu Contato",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
 
             switch (menuCadastro) {
@@ -335,8 +335,17 @@ public class Main {
 
         private static void chamaCadastroContato()throws SQLException, ClassNotFoundException {
 
+            try {
+
             String nomeContato = JOptionPane.showInputDialog(null, "Informe o nome da contato:",
                     "Cadastro Contato", JOptionPane.DEFAULT_OPTION);
+
+                if (nomeContato.isEmpty()) {
+                    JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                   "Cadastrar Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                    chamaCadastroContato();
+                    return;
+                }
 
             Contato contato = new Contato(null,nomeContato);
 
@@ -347,30 +356,60 @@ public class Main {
 
             chamaMenuCadastroContato();
 
+            } catch (NullPointerException e) {
+                chamaMenuCadastroContato();
+            }
+
         }
 
         private static void chamaEditarContato() throws SQLException, ClassNotFoundException {
 
-            Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
-            String initialSelectionContato = (String) selectionValuesContato[0];
-            Object selectionContato = JOptionPane.showInputDialog(null, "Selecione o contato que deseja editar:",
-                    "Editar Contato", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato, initialSelectionContato);
-            List<Contato> contatosEdit = getContatoDAO().buscarPorNome((String) selectionContato);
+            if (getContatoDAO().findContatoInArray().length < 1) {
+                JOptionPane.showConfirmDialog(null, "Não existe contato cadastrada !!!",
+                        "Editar Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroContato();
+                return;
+            }
 
-            Object nomeContato = JOptionPane.showInputDialog(null, "Informe o nome da contato:",
-                    "Editar Contato", JOptionPane.DEFAULT_OPTION, null, null, contatosEdit.get(0).getNome());
+            try {
 
+                Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
+                String initialSelectionContato = (String) selectionValuesContato[0];
+                Object selectionContato = JOptionPane.showInputDialog(null, "Selecione o contato que deseja editar:",
+                        "Editar Contato", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato, initialSelectionContato);
+                List<Contato> contatosEdit = getContatoDAO().buscarPorNome((String) selectionContato);
 
-            Contato contato = new Contato(contatosEdit.get(0).getId(),nomeContato.toString());
+                Object nomeContato = JOptionPane.showInputDialog(null, "Informe o nome da contato:",
+                        "Editar Contato", JOptionPane.DEFAULT_OPTION, null, null, contatosEdit.get(0).getNome());
 
-            getContatoDAO().salvar(contato);
+                if (nomeContato.toString().isEmpty()) {
+                    JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                            "Editar Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                    chamaEditarContato();
+                    return;
+                }
 
-            JOptionPane.showConfirmDialog(null, "Cadastro editado com sucesso!",
-                    "Editar Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+                Contato contato = new Contato(contatosEdit.get(0).getId(), nomeContato.toString());
 
-            chamaMenuCadastroContato();
+                getContatoDAO().salvar(contato);
+
+                JOptionPane.showConfirmDialog(null, "Cadastro editado com sucesso!",
+                        "Editar Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+                chamaMenuCadastroContato();
+
+            } catch (NullPointerException e) {
+                    chamaMenuCadastroContato();
+                }
+
         }
         private  static void chamaRemoverContato() throws SQLException, ClassNotFoundException{
+
+            if (getContatoDAO().findContatoInArray().length < 1) {
+                JOptionPane.showConfirmDialog(null, "Não existe contato cadastrado para remoção !!!",
+                        "Remover Contato", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroContato();
+                return;
+            }
 
             Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
             String initialSelectionContato = (String) selectionValuesContato[0];
@@ -391,7 +430,7 @@ public class Main {
 
         String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
         int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
-                "Menu Cadastro Categoria",
+                "Menu Ambiente de Inovação",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
 
         switch (menuCadastro) {
