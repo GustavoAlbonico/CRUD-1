@@ -20,13 +20,13 @@ public class EmpresaContatoRepository {
 
         for (EmpresaContato empresaContato1 : empresaContato){
 
-        PreparedStatement stmt = connection.prepareStatement("insert into empresa_contato values (null,?,?,?)");
+        PreparedStatement stmt = connection.prepareStatement("insert into empresa_contato values (null, ?, ?, ?)");
         stmt.setString(1, empresaContato1.getDescricao());
         stmt.setInt(2, id);
         stmt.setInt(3, empresaContato1.getContato().getId().intValue());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linha(s) inserida(s)");
         }
         connection.close();
     }
@@ -87,7 +87,7 @@ public class EmpresaContatoRepository {
         stmt.setInt(3, empresaContato.getContato().getId().intValue());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linha(s) atualizada(s)");
         connection.close();
     }
 
@@ -96,7 +96,8 @@ public class EmpresaContatoRepository {
         PreparedStatement stmt = connection.prepareStatement("delete from empresa_contato where id = ?");
 
         stmt.setInt(1, empresaContato.getId().intValue());
-        stmt.executeUpdate();
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linha(s) removida(s)");
         connection.close();
     }
 }

@@ -27,7 +27,11 @@ public final class ContatoDAO implements IGenericDAO<Contato> {
         ContatoRepository repository = new ContatoRepository();
 
         try {
-            repository.insere(contato);
+            if(contato.getId() != null) {
+                repository.update(contato);
+            } else {
+                repository.insere(contato);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -27,7 +27,7 @@ public class CategoriaRepository {
         stmt.setString(1, categoria.getNome());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linha(s) inserida(s)");
         connection.close();
     }
 
@@ -75,7 +75,8 @@ public class CategoriaRepository {
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM categoria" +
                 " WHERE id = ?");
         stmt.setInt(1, categoria.getId().intValue());
-        stmt.executeUpdate();
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linha(s) removida(s)");
         connection.close();
     }
 
@@ -89,7 +90,7 @@ public class CategoriaRepository {
         stmt.setInt(2, categoria.getId().intValue());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas atualizadas");
+        System.out.println(i + " linha(s) atualizada(s)");
         connection.close();
     }
 

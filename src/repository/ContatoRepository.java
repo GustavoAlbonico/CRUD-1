@@ -23,7 +23,7 @@ public class ContatoRepository {
         stmt.setString(1, contato.getNome());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linha(s) inserida(s)");
         connection.close();
     }
 
@@ -69,7 +69,7 @@ public class ContatoRepository {
         stmt.setString(1, contato.getNome());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas atualizadas");
+        System.out.println(i + " linha(s) atualizada(s)");
         connection.close();
     }
 
@@ -77,7 +77,8 @@ public class ContatoRepository {
         Connection connection = getConnection();
         PreparedStatement stmt = connection.prepareStatement("delete from contato where id = ?");
         stmt.setInt(1, contato.getId().intValue());
-        stmt.executeUpdate();
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linha(s) removida(s)");
         connection.close();
     }
 }
