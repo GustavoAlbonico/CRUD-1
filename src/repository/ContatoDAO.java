@@ -1,8 +1,7 @@
 package repository;
 
 
-import model.Contato;
-import model.EstadoEnum;
+import model.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,6 +19,18 @@ public final class ContatoDAO implements IGenericDAO<Contato> {
             contatoNomes.add(contato.getNome());
         }
         return contatoNomes.toArray();
+    }
+
+    public boolean verificaParents (Contato contato){
+        EmpresaContatoDAO empresaContatoDAO = new EmpresaContatoDAO();
+        List<EmpresaContato> listaEmpresaContato = empresaContatoDAO.buscarTodos();
+
+        for (EmpresaContato empresaContato : listaEmpresaContato){
+            if (empresaContato.getContato().getId().equals(contato.getId())){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

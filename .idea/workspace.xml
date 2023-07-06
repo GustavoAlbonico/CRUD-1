@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criando CRUD de contato">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="arrumando o cadastro de empresa e tentando arrumar o editar empresa.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Empresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Empresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/ContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ContatoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/EmpresaContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaContatoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/EmpresaContatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaContatoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +60,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -152,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688598662861</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="arrumando o cadastro de empresa e tentando arrumar o editar empresa.">
+      <created>1688619448996</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688619448996</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,7 +187,8 @@
     <MESSAGE value="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio" />
     <MESSAGE value="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main." />
     <MESSAGE value="Criando CRUD de contato" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando CRUD de contato" />
+    <MESSAGE value="arrumando o cadastro de empresa e tentando arrumar o editar empresa." />
+    <option name="LAST_COMMIT_MESSAGE" value="arrumando o cadastro de empresa e tentando arrumar o editar empresa." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

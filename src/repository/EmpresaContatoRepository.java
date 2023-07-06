@@ -1,5 +1,6 @@
 package repository;
 
+import model.Empresa;
 import model.EmpresaContato;
 
 import java.sql.*;
@@ -79,25 +80,33 @@ public class EmpresaContatoRepository {
         return empresaContatos;
     }
 
-    public void update(EmpresaContato empresaContato) throws SQLException, ClassNotFoundException{
+    public void update(Integer id,List<EmpresaContato> empresaContato) throws SQLException, ClassNotFoundException{
         Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement("update empresa_contato set perfil = ?, empresa_id = ?, contato_id = ? where id = ?");
-        stmt.setString(1, empresaContato.getDescricao());
-        stmt.setInt(2, empresaContato.getEmpresa().getId().intValue());
-        stmt.setInt(3, empresaContato.getContato().getId().intValue());
 
-        int i = stmt.executeUpdate();
-        System.out.println(i + " linha(s) atualizada(s)");
+        for (EmpresaContato empresaContato1 : empresaContato) {
+
+
+            PreparedStatement stmt = connection.prepareStatement("update empresa_contato set descricao = ?, empresa_id = ?, contato_id = ? where id = ?");
+            stmt.setString(1, empresaContato1.getDescricao());
+            stmt.setInt(2, id);
+            stmt.setInt(3, empresaContato1.getContato().getId().intValue());
+            stmt.setInt(4, empresaContato1.getId().intValue());
+
+            int i = stmt.executeUpdate();
+            System.out.println(i + " linha(s) atualizada(s)");
+        }
         connection.close();
     }
 
-    public void delete(EmpresaContato empresaContato) throws SQLException, ClassNotFoundException{
+    public void delete(Integer idEmpresa) throws SQLException, ClassNotFoundException{
         Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement("delete from empresa_contato where id = ?");
 
-        stmt.setInt(1, empresaContato.getId().intValue());
-        int i = stmt.executeUpdate();
-        System.out.println(i + " linha(s) removida(s)");
+            PreparedStatement stmt = connection.prepareStatement("delete from empresa_contato where empresa_id = ?");
+
+            stmt.setInt(1, idEmpresa);
+            int i = stmt.executeUpdate();
+            System.out.println(i + " linha(s) removida(s)");
+
         connection.close();
     }
 }

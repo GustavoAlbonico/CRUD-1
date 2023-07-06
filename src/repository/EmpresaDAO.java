@@ -1,7 +1,9 @@
 package repository;
 
 import model.AmbienteGeral;
+import model.Contato;
 import model.Empresa;
+import model.EmpresaContato;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -65,6 +67,34 @@ public final class EmpresaDAO implements IGenericDAO<Empresa> {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean verificaNomeCadastro (String nome){
+        List<Empresa> listaEmpresa = buscarTodos();
+
+        for (Empresa empresa : listaEmpresa){
+            if (empresa.getNome().equals(nome)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean verificaNomeEdicao (String nome,Empresa empresaEdit){
+        List<Empresa> listaEmpresa = buscarTodos();
+
+        for (int x = 0; x < listaEmpresa.size();x++){
+            if (listaEmpresa.get(x).getNome().equals(empresaEdit.getNome())){
+                listaEmpresa.remove(listaEmpresa.get(x));
+            }
+        }
+
+        for (Empresa empresa1 : listaEmpresa){
+            if (empresa1.getNome().equals(nome)){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
