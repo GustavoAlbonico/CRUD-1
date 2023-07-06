@@ -48,7 +48,11 @@ public final class EmpresaContatoDAO implements IGenericDAO<EmpresaContato>{
         EmpresaContatoRepository repository = new EmpresaContatoRepository();
 
         try {
-            repository.insere(id,empresaContato);
+            if(id != null){
+                //repository.update(id, empresaContato);
+            } else {
+                repository.insere(id,empresaContato);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

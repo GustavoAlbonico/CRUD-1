@@ -28,7 +28,7 @@ public class CidadeRepository {
         stmt.setString(2,cidade.getUF().toString());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linha(s) inserida(s)");
         connection.close();
     }
 
@@ -98,7 +98,8 @@ public class CidadeRepository {
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM cidade" +
                 " WHERE id = ?");
         stmt.setInt(1, cidade.getId().intValue());
-        stmt.executeUpdate();
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linha(s) removidas(s)");
         connection.close();
     }
 
@@ -113,7 +114,7 @@ public class CidadeRepository {
         stmt.setInt(3, cidade.getId().intValue());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas atualizadas");
+        System.out.println(i + " linha(s) atualizada(s)");
         connection.close();
     }
 }

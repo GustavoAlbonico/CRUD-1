@@ -139,7 +139,7 @@ public class AmbienteRepository {
         stmt.setInt(8, ambiente.getId().intValue());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas atualizadas");
+        System.out.println(i + " linha(s) atualizada(s)");
         connection.close();
     }
 
