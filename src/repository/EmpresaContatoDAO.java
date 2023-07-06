@@ -1,5 +1,6 @@
 package repository;
 
+import model.Ambiente;
 import model.EmpresaContato;
 
 import java.sql.SQLException;
@@ -9,24 +10,53 @@ import java.util.List;
 public final class EmpresaContatoDAO implements IGenericDAO<EmpresaContato>{
     List<EmpresaContato> empresaContatos = new ArrayList<>();
 
-    public Object[] findEmpesaContatosInArray() throws SQLException, ClassNotFoundException{
-        List<EmpresaContato> empresaContatos1 = buscarTodos();
+    public Object[] findEmpesaContatosInArray(List<EmpresaContato> listaEmpresa) throws SQLException, ClassNotFoundException{
+        List<EmpresaContato> empresaContatos1 = listaEmpresa;
         List<String> empresaContatoNomes = new ArrayList<>();
 
         for (EmpresaContato empresaContato : empresaContatos1) {
-            empresaContatoNomes.add(empresaContato.getDescricao());
+            empresaContatoNomes.add(empresaContato.getContato().getNome());
         }
         return empresaContatoNomes.toArray();
     }
 
-    public void salvar(EmpresaContato empresaContato) {
+    public Integer buscarPorPosicao(List<EmpresaContato> listaEmpresa,String nome) {
+        List<EmpresaContato> empresaContatos = listaEmpresa;
+        Integer posicaoContato = 0;
+
+        for (int x =0 ; x < empresaContatos.size(); x ++) {
+            if (empresaContatos.get(x).getContato().getNome().contains(nome)) {
+                posicaoContato = x;
+            }
+        }
+        return posicaoContato;
+    }
+
+    public List<EmpresaContato> findListaEmpesaContatosInArray(Integer id) throws SQLException, ClassNotFoundException{
+        EmpresaContatoRepository empresaContatoRepository = new EmpresaContatoRepository();
+        List<EmpresaContato> empresaContatos1 = empresaContatoRepository.buscaPorIdDeEmpresa(id);
+        List<EmpresaContato> listaEmpresaContato = new ArrayList<>();
+
+        for (EmpresaContato empresaContato : empresaContatos1) {
+            listaEmpresaContato.add(empresaContato);
+        }
+        return listaEmpresaContato;
+    }
+
+
+    public void salvar(Integer id,List<EmpresaContato> empresaContato) {
         EmpresaContatoRepository repository = new EmpresaContatoRepository();
 
         try {
-            repository.insere(empresaContato);
+            repository.insere(id,empresaContato);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void salvar(EmpresaContato objeto) {
+
     }
 
     @Override
@@ -48,19 +78,14 @@ public final class EmpresaContatoDAO implements IGenericDAO<EmpresaContato>{
 
     @Override
     public List<EmpresaContato> buscarPorNome(String nome) {
-        return null;
-    }
+        List<EmpresaContato> empresaContatos = buscarTodos();
+        List<EmpresaContato> filtradas = new ArrayList<>();
 
-    //Necessário? Buscar por perfil? Nome -> interface
-//    public List<EmpresaContato> buscarPorNome(EmpresaContato descricao){
-//        List<EmpresaContato> empresaContatos1 = buscarTodos();
-//        List<EmpresaContato> filtradas = new ArrayList<>();
-//
-//        for(EmpresaContato empresaContato : empresaContatos1) {
-//            if (empresaContato.getDescricao().contains((CharSequence) descricao)){
-//                filtradas.add(descricao);
-//            }
-//        }
-//        return filtradas;
-//    }
+        for (EmpresaContato empresaContato : empresaContatos) {
+            if (empresaContato.getContato().getNome().contains(nome)) {
+                filtradas.add(empresaContato);
+            }
+        }
+        return filtradas;
+    }
 }

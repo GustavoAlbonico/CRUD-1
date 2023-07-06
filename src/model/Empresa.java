@@ -1,11 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Empresa {
     private Integer id;
     private String nome;
     private String logo;
     private String site;
     private Ambiente ambiente;
+    private List<EmpresaContato> listaContato = new ArrayList<>();
 
     public Empresa(Integer id, String nome, String logo, String site, Ambiente ambiente) {
         this.id = id;
@@ -23,6 +27,11 @@ public class Empresa {
         this.ambiente = ambiente;
     }
     public Empresa(){}
+
+    public void adicionarContato (EmpresaContato empresaContato){
+        listaContato.add(empresaContato);
+
+    }
 
     public Integer getId() {
         return id;
@@ -62,5 +71,13 @@ public class Empresa {
 
     public void setAmbiente(Ambiente ambiente) {
         this.ambiente = ambiente;
+    }
+
+    public List<EmpresaContato> getListaContato() {
+        return listaContato;
+    }
+
+    public void setListaContato(List<EmpresaContato> listaContato) {
+        this.listaContato = listaContato;
     }
 }

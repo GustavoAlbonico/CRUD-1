@@ -15,24 +15,27 @@ public class EmpresaContatoRepository {
         return connection;
     }
 
-    public void insere(EmpresaContato empresaContato) throws SQLException, ClassNotFoundException {
+    public void insere(Integer id,List<EmpresaContato> empresaContato) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
 
-        PreparedStatement stmt = connection.prepareStatement("insert into empresa_contato values (null, ?, ?, ?)");
-        stmt.setString(2, empresaContato.getDescricao());
-        stmt.setInt(3, empresaContato.getEmpresa().getId().intValue());
-        stmt.setInt(4, empresaContato.getContato().getId().intValue());
+        for (EmpresaContato empresaContato1 : empresaContato){
+
+        PreparedStatement stmt = connection.prepareStatement("insert into empresa_contato values (null,?,?,?)");
+        stmt.setString(1, empresaContato1.getDescricao());
+        stmt.setInt(2, id);
+        stmt.setInt(3, empresaContato1.getContato().getId().intValue());
 
         int i = stmt.executeUpdate();
         System.out.println(i + " linhas inseridas");
+        }
         connection.close();
     }
 
-    public List<EmpresaContato> buscaPorId(Integer id) throws SQLException, ClassNotFoundException{
+    public List<EmpresaContato> buscaPorIdDeEmpresa(Integer id) throws SQLException, ClassNotFoundException{
         List<EmpresaContato> empresaContatos = new ArrayList<>();
         Connection connection = getConnection();
 
-        PreparedStatement stmt = connection.prepareStatement("select * from empresa_contato where id = ?");
+        PreparedStatement stmt = connection.prepareStatement("select * from empresa_contato where empresa_id = ?");
         stmt.setInt(1, id);
         ResultSet resultSet = stmt.executeQuery();
 
@@ -41,7 +44,6 @@ public class EmpresaContatoRepository {
             empresaContato.setId(resultSet.getInt(1));
             empresaContato.setDescricao(resultSet.getString(2));
 
-            //FK - empresa e contato
             EmpresaRepository empresaRepository = new EmpresaRepository();
             empresaContato.setEmpresa(empresaRepository.buscaPorId(resultSet.getInt(3)).get(0));
 
