@@ -31,7 +31,7 @@ public class Main {
                     chamaMenuCadastroAmbiente();
                     break;
                 case 4: //menuCadastroEmpresa
-                   // chamaMenuCadastroEmpresa();
+                    chamaMenuCadastroEmpresa();
                     break;
                 case 5: //menuRelatorios
                     chamaMenuRelatorio();
@@ -701,90 +701,166 @@ public class Main {
 
 
     }
-    //CADASTRO EMPRESA QUEBRANDO NA LINHA 740 XDD
-//    private static void chamaMenuCadastroEmpresa() throws SQLException, ClassNotFoundException {
-//
-//        String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
-//        int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
-//                "Menu Cadastro Empresa",
-//                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
-//
-//        switch (menuCadastro) {
-//            case 0: //CadastroEmpresa
-//                chamaCadastroEmpresa();
-//                break;
-//            case 1: //EditarEmpresa
-//                chamaEditarEmpresa();
-//                break;
-//            case 2: //RemoverEmpresa
-//                chamaRemoverEmpresa();
-//                break;
-//            case 3: //Voltar
-//                chamaMenuPrincipal();
-//                break;
-//        }
-//    }
-//
-//    private static void chamaCadastroEmpresa() throws SQLException, ClassNotFoundException {
-//
-//        String nomeEmpresa = JOptionPane.showInputDialog(null, "Informe o nome da empresa:",
-//                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
-//
-//        String logoEmpresa = JOptionPane.showInputDialog(null, "Informe a url da logo da empresa:",
-//                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
-//
-//        String siteEmpresa = JOptionPane.showInputDialog(null, "Informe a url do site da empresa:",
-//                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
-//
-//
-//
-//        Object[] opcoesAmbiente = getAmbienteDAO().findAmbienteInArray();
-//        Object selectionAmbiente = JOptionPane.showInputDialog(null, "Selecione o Ambiente de Inovação da empresa cadastrada:",
-//                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, null, opcoesAmbiente, opcoesAmbiente[0]);
-//        List<Ambiente> ambientes = getAmbienteDAO().buscarPorNome((String) selectionAmbiente);
-//
-//        Empresa empresa = new Empresa(null,nomeEmpresa,logoEmpresa,siteEmpresa,ambientes.get(0));
-//
-//        getEmpresaDAO().salvar(empresa);
-//
-//        JOptionPane.showConfirmDialog(null, "Empresa cadastrada com sucesso!",
-//                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
-//
-//        chamaMenuCadastroEmpresa();
-//
-//    }
-//    private static void chamaEditarEmpresa() throws SQLException, ClassNotFoundException {
-//
-//        Object[] selectionValuesEmpresa = getEmpresaDAO().findEmpresaInArray();
-//        String initialSelectionEmpresa = (String) selectionValuesEmpresa[0];
-//        Object selectionEmpresa = JOptionPane.showInputDialog(null, "Selecione a empresa que deseja editar:",
-//                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesEmpresa, initialSelectionEmpresa);
-//        List<Empresa> empresaEdit = getEmpresaDAO().buscarPorNome((String) selectionEmpresa);
-//
-//        Object nomeEmpresa = JOptionPane.showInputDialog(null, "Informe o nome da empresa:",
-//                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getNome());
-//
-//        Object logoEmpresa = JOptionPane.showInputDialog(null, "Informe a logo da empresa:",
-//                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getNome());
-//
-//        Object siteEmpresa = JOptionPane.showInputDialog(null, "Informe o site da empresa:",
-//                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getNome());
-//
-//        Object[] opcoesAmbiente = getAmbienteDAO().findAmbienteInArray();
-//        String initialSelectionAmbiente = (String) selectionValuesEmpresa[0];
-//        Object selectionAmbiente = JOptionPane.showInputDialog(null, "Selecione o Ambiente de Inovação:",
-//                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, opcoesAmbiente, initialSelectionAmbiente);
-//        List<Ambiente> ambientes = getAmbienteDAO().buscarPorNome((String) selectionAmbiente);
-//
-//        Empresa empresa = new Empresa(empresaEdit.get(0).getId(),nomeEmpresa,logoEmpresa,siteEmpresa,ambientes);
-//
-//        getEmpresaDAO().salvar(empresa);
-//
-//        JOptionPane.showConfirmDialog(null, "Empresa editada com sucesso!",
-//                "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
-//
-//        chamaMenuCadastroEmpresa();
-//    }
+
+    private static void chamaMenuCadastroEmpresa() throws SQLException, ClassNotFoundException {
+
+        String[] opcoesMenuCadastro = {"Cadastrar", "Editar", "Remover","Voltar"};
+        int menuCadastro = JOptionPane.showOptionDialog(null, "Escolha uma opção:",
+                "Menu Cadastro Empresa",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
+
+        switch (menuCadastro) {
+            case 0: //CadastroEmpresa
+                chamaCadastroEmpresa();
+                break;
+            case 1: //EditarEmpresa
+                chamaEditarEmpresa();
+                break;
+            case 2: //RemoverEmpresa
+               // chamaRemoverEmpresa();
+                break;
+            case 3: //Voltar
+                chamaMenuPrincipal();
+                break;
+        }
+    }
+
+    private static void chamaCadastroEmpresa() throws SQLException, ClassNotFoundException {
+        Integer contadorContato = 0;
+
+        String nomeEmpresa = JOptionPane.showInputDialog(null, "Informe o nome da empresa:",
+                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
+
+        String logoEmpresa = JOptionPane.showInputDialog(null, "Informe a url da logo da empresa:",
+                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
+
+        String siteEmpresa = JOptionPane.showInputDialog(null, "Informe a url do site da empresa:",
+                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
+
+
+
+        Object[] opcoesAmbiente = getAmbienteDAO().findAmbienteInArray();
+        String initialSelectionAmbiente = (String) opcoesAmbiente[0];
+        Object selectionAmbiente = JOptionPane.showInputDialog(null, "Selecione o Ambiente de Inovação da empresa cadastrada:",
+                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, null, opcoesAmbiente, initialSelectionAmbiente);
+        List<Ambiente> ambientes = getAmbienteDAO().buscarPorNome((String) selectionAmbiente);
+
+        Empresa empresa = new Empresa(null,nomeEmpresa,logoEmpresa,siteEmpresa,ambientes.get(0));
+
+        do {
+            Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
+            String initialSelectionContato = (String) selectionValuesContato[0];
+            Object selectionContato = JOptionPane.showInputDialog(null, "Selecione tipo de contato:",
+                    "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato, initialSelectionContato);
+            List<Contato> contatos = getContatoDAO().buscarPorNome((String) selectionContato);
+
+         String descricaoContato = JOptionPane.showInputDialog(null, "Informe a descrição do contato:",
+                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION);
+
+        EmpresaContato empresaContato = new EmpresaContato(null,descricaoContato,empresa,contatos.get(0));
+
+        empresa.adicionarContato(empresaContato);
+
+            String[] opcoesMenuCadastro = {"Sim", "Não"};
+            int menuCadastro = JOptionPane.showOptionDialog(null, "Deseja cadastrar outro contato?",
+                    "Cadastro Empresa",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
+
+            switch (menuCadastro) {
+                case 0: //Sim
+
+                    break;
+                case 1: //Não
+                    contadorContato = 1;
+                    break;
+            }
+
+        }while(contadorContato==0);
+
+        getEmpresaDAO().salvar(empresa);
+
+        JOptionPane.showConfirmDialog(null, "Empresa cadastrada com sucesso!",
+                "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroEmpresa();
+
+    }
+    private static void chamaEditarEmpresa() throws SQLException, ClassNotFoundException {
+
+        Integer contadorContato = 0;
+
+        Object[] selectionValuesEmpresa = getEmpresaDAO().findEmpresaInArray();
+        String initialSelectionEmpresa = (String) selectionValuesEmpresa[0];
+        Object selectionEmpresa = JOptionPane.showInputDialog(null, "Selecione a empresa que deseja editar:",
+                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesEmpresa, initialSelectionEmpresa);
+        List<Empresa> empresaEdit = getEmpresaDAO().buscarPorNome((String) selectionEmpresa);
+
+        Object nomeEmpresa = JOptionPane.showInputDialog(null, "Informe o nome da empresa:",
+                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getNome());
+
+        Object logoEmpresa = JOptionPane.showInputDialog(null, "Informe a logo da empresa:",
+                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getLogo());
+
+        Object siteEmpresa = JOptionPane.showInputDialog(null, "Informe o site da empresa:",
+                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getSite());
+
+        Object[] opcoesAmbiente = getAmbienteDAO().findAmbienteInArray();
+        Object selectionAmbiente = JOptionPane.showInputDialog(null, "Selecione o Ambiente de Inovação:",
+                "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, opcoesAmbiente, empresaEdit.get(0).getAmbiente().getNome());
+        List<Ambiente> ambientes = getAmbienteDAO().buscarPorNome((String) selectionAmbiente);
+
+        Empresa empresa = new Empresa(empresaEdit.get(0).getId(),nomeEmpresa.toString(),logoEmpresa.toString(),siteEmpresa.toString(),ambientes.get(0));
+        List<EmpresaContato> empresaListaContatosa = getEmpresaContatoDAO().findListaEmpesaContatosInArray(empresaEdit.get(0).getId());
+
+        for (EmpresaContato empresaContato : empresaListaContatosa){
+            empresa.adicionarContato(empresaContato);
+        }
+        do {
+
+            Object[] selectionValuesListaContato = getEmpresaContatoDAO().findEmpesaContatosInArray(empresa.getListaContato());
+            String initialSelectionListaContato = (String) selectionValuesListaContato[0];
+            Object selectionListaContato = JOptionPane.showInputDialog(null, "Selecione tipo de contato que deseja editar:",
+                    "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesListaContato, initialSelectionListaContato);
+            List<EmpresaContato> empresaListaContatos = getEmpresaContatoDAO().buscarPorNome((String) selectionListaContato);
+
+//PAREI AQUI VOU CONTINUAR QUINTA o erro o buscaPorNome
+            Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
+            Object selectionContato = JOptionPane.showInputDialog(null, "Selecione o novo tipo de contato:",
+                    "Cadastro Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato,
+                    empresaListaContatos.get(0).getContato().getNome());
+            List<Contato> contatos = getContatoDAO().buscarPorNome((String) selectionContato);
+
+            Object descricaoContato = JOptionPane.showInputDialog(null, "Informe o site da empresa:",
+                    "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaListaContatos.get(0).getDescricao());
+
+            Integer posicaoContato = getEmpresaContatoDAO().buscarPorPosicao(empresa.getListaContato(),(String) selectionListaContato);
+
+            empresa.getListaContato().get(posicaoContato).setContato(contatos.get(0));
+            empresa.getListaContato().get(posicaoContato).setDescricao(descricaoContato.toString());
+            empresa.getListaContato().get(posicaoContato).setEmpresa(empresa);
+
+            String[] opcoesMenuCadastro = {"Sim", "Não"};
+            int menuCadastro = JOptionPane.showOptionDialog(null, "Deseja cadastrar outro contato?",
+                    "Cadastro Empresa",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuCadastro, opcoesMenuCadastro[0]);
+
+            switch (menuCadastro) {
+                case 0: //Sim
+                    break;
+                case 1: //Não
+                    contadorContato = 1;
+                    break;
+            }
+
+        }while(contadorContato==0);
+
+      //  getEmpresaDAO().salvar(empresa);
+
+        JOptionPane.showConfirmDialog(null, "Empresa editada com sucesso!",
+                "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroEmpresa();
+    }
 
     private static void chamaMenuRelatorio() throws SQLException, ClassNotFoundException {
 
@@ -872,7 +948,7 @@ public class Main {
 
     public static void chamaMenuRelatorioEmpresa () throws SQLException, ClassNotFoundException {
 
-        String[] opcoesMenuRelatoriosAmbiente = {"Geral", "Ambiente","Contato","Voltar"};
+        String[] opcoesMenuRelatoriosAmbiente = {"Geral", "Ambiente","Voltar"};
         int menuRelatoriosAmbiente = JOptionPane.showOptionDialog(null, "Escolha uma opção para filtrar:",
                 "Menu Relatórios Empresa ("+getEmpresaDAO().buscaQtdEmpresaTotal()+")",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoesMenuRelatoriosAmbiente, opcoesMenuRelatoriosAmbiente[0]);
@@ -884,10 +960,7 @@ public class Main {
             case 1: //RelatorioAmbienteEmpresa
                 chamaRelatorioAmbienteEmpresa();
                 break;
-            case 2: //chamaRelatorioContato
-                // chamaRelatorioContato();
-                break;
-            case 3: //Voltar
+            case 2: //Voltar
                 chamaMenuRelatorio();
                 break;
         }
@@ -966,6 +1039,11 @@ public class Main {
     public static ContatoDAO getContatoDAO() {
         ContatoDAO contatoDAO = new ContatoDAO();
         return contatoDAO;
+    }
+
+    public static EmpresaContatoDAO getEmpresaContatoDAO() {
+        EmpresaContatoDAO empresaContatoDAO = new EmpresaContatoDAO();
+        return empresaContatoDAO;
     }
 
 }
