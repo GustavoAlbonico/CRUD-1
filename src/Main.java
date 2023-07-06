@@ -837,7 +837,6 @@ public class Main {
         List<Ambiente> ambientes = getAmbienteDAO().buscarPorNomeSemQTD((String) selectionCidade);
 
 
-
         if (getEmpresaDAO().buscarTodosPorAmbiente(ambientes.get(0).getId()).size() < 1) {
             JOptionPane.showConfirmDialog(null, "Não foi realizado nenhum cadastro de empresa nesse ambiente até o momento !!!",
                     "Relatório Empresa Ambiente", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
