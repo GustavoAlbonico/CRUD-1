@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero.">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Criando CRUD de contato">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -139,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688593808453</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Criando CRUD de contato">
+      <created>1688598662861</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688598662861</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +171,8 @@
     <MESSAGE value="Criado metodo AmbienteDAO.findAmbienteInArray&#10;Criado metodos de remover/editar ambiente, categoria&#10;Criado metodo para editar Cidade&#10;Criado menus de editar/remover categoria e ambiente&#10;criado sobrecarga em Ambiente sem numero." />
     <MESSAGE value="Criando tratamentos de erros no main&#10;criando metodos especificos para tratar erros&#10;Arrumando alguns metodos em EmpresaRepository&#10;Adicionanto metodo no EmpresaRepository para relatorio" />
     <MESSAGE value="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main." />
-    <option name="LAST_COMMIT_MESSAGE" value="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main." />
+    <MESSAGE value="Criando CRUD de contato" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criando CRUD de contato" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
