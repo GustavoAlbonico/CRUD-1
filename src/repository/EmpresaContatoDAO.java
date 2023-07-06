@@ -1,6 +1,6 @@
 package repository;
 
-import model.Ambiente;
+
 import model.EmpresaContato;
 
 import java.sql.SQLException;
@@ -43,30 +43,51 @@ public final class EmpresaContatoDAO implements IGenericDAO<EmpresaContato>{
         return listaEmpresaContato;
     }
 
+    public List<EmpresaContato> buscarPorNomeListaContato(String nome,List<EmpresaContato> listaEmpresaContato) {
+        List<EmpresaContato> empresaContatoes = listaEmpresaContato;
+        List<EmpresaContato> filtradas = new ArrayList<>();
+
+        for (EmpresaContato empresaContato : empresaContatoes) {
+            if (empresaContato.getContato().getNome().contains(nome)) {
+                filtradas.add(empresaContato);
+            }
+        }
+        return filtradas;
+    }
+
 
     public void salvar(Integer id,List<EmpresaContato> empresaContato) {
         EmpresaContatoRepository repository = new EmpresaContatoRepository();
 
         try {
-            if(id != null){
-                //repository.update(id, empresaContato);
-            } else {
                 repository.insere(id,empresaContato);
-            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
+    public void update(Integer id,List<EmpresaContato> empresaContato) {
+        EmpresaContatoRepository repository = new EmpresaContatoRepository();
+
+        try {
+            repository.update(id,empresaContato);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void removerEmpresaEContato(Integer idEmpresa) throws SQLException, ClassNotFoundException {
+        EmpresaContatoRepository empresaContatoRepository = new EmpresaContatoRepository();
+        empresaContatoRepository.delete(idEmpresa);
+    }
+
     @Override
     public void salvar(EmpresaContato objeto) {
-
     }
 
     @Override
     public void remover(EmpresaContato empresaContato) throws SQLException, ClassNotFoundException {
-        EmpresaContatoRepository empresaContatoRepository = new EmpresaContatoRepository();
-        empresaContatoRepository.delete(empresaContato);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package relatorios;
 
-import model.AmbienteGeral;
+
 import model.Empresa;
 
 import javax.swing.table.AbstractTableModel;

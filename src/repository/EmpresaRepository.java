@@ -1,7 +1,5 @@
 package repository;
 
-import model.AmbienteGeral;
-import model.Contato;
 import model.Empresa;
 
 import java.sql.*;
@@ -101,15 +99,20 @@ public class EmpresaRepository {
 
     public void update(Empresa empresa) throws SQLException, ClassNotFoundException {
         Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement("update empresa set nome = ?, logo = ?, ambiente_id = ? where id = ?");
+        PreparedStatement stmt = connection.prepareStatement("update empresa set nome = ?, logo = ?, site = ?, ambiente_id = ? where id = ?");
+
         stmt.setString(1, empresa.getNome());
         stmt.setString(2, empresa.getLogo());
-        stmt.setInt(3, empresa.getAmbiente().getId().intValue());
-        stmt.setInt(4, empresa.getId().intValue());
+        stmt.setString(3, empresa.getSite());
+        stmt.setInt(4, empresa.getAmbiente().getId().intValue());
+        stmt.setInt(5, empresa.getId().intValue());
 
         int i = stmt.executeUpdate();
         System.out.println(i + " linhas atualizadas");
         connection.close();
+
+        EmpresaContatoDAO empresaContatoDAO =  new EmpresaContatoDAO();
+        empresaContatoDAO.update(empresa.getId(),empresa.getListaContato());
     }
 
     public void delete(Empresa empresa) throws SQLException, ClassNotFoundException {

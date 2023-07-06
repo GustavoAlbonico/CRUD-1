@@ -65,12 +65,14 @@ public class ContatoRepository {
     public void update(Contato contato) throws SQLException, ClassNotFoundException{
         Connection connection = getConnection();
 
-        PreparedStatement stmt = connection.prepareStatement("update contato set nome = ?");
+        PreparedStatement stmt = connection.prepareStatement("update contato SET nome = ? WHERE id = ? ");
         stmt.setString(1, contato.getNome());
+        stmt.setInt(2,contato.getId());
 
         int i = stmt.executeUpdate();
         System.out.println(i + " linha(s) atualizada(s)");
         connection.close();
+
     }
 
     public void delete(Contato contato) throws SQLException, ClassNotFoundException{

@@ -1,6 +1,5 @@
-import model.AmbienteGeral;
+
 import model.Empresa;
-import relatorios.RelatorioAmbienteGeral;
 import relatorios.RelatorioEmpresaGeral;
 
 import javax.swing.*;

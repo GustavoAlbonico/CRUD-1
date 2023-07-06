@@ -421,6 +421,13 @@ public class Main {
                     "Remover Contato", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato, initialSelectionContato);
             List<Contato> contatos = getContatoDAO().buscarPorNome((String) selectionContato);
 
+            if (getContatoDAO().verificaParents(contatos.get(0)) == false) {
+                JOptionPane.showConfirmDialog(null, "Não é possivel remover o tipo de contato que pertence a uma empresa !!!",
+                        "Remover Cidade", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroCategoria();
+                return;
+            }
+
             getContatoDAO().remover(contatos.get(0));
 
             JOptionPane.showConfirmDialog(null, "Contato removido com sucesso!",
@@ -724,7 +731,7 @@ public class Main {
                 chamaEditarEmpresa();
                 break;
             case 2: //RemoverEmpresa
-                // chamaRemoverEmpresa();
+                 chamaRemoverEmpresa();
                 break;
             case 3: //Voltar
                 chamaMenuPrincipal();
@@ -736,14 +743,45 @@ public class Main {
         Integer contadorContato = 0;
 
         try {
+
             String nomeEmpresa = JOptionPane.showInputDialog(null, "Informe o nome da empresa:",
                     "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION);
+
+            if (nomeEmpresa.isEmpty()) {
+                JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                        "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                chamaCadastroEmpresa();
+                return;
+            }
+
+            if (getEmpresaDAO().verificaNomeCadastro(nomeEmpresa) == false) {
+                JOptionPane.showConfirmDialog(null, "Não é possivel cadastrar uma empresa com um nome já existente !!!",
+                        "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaCadastroEmpresa();
+                return;
+            }
 
             String logoEmpresa = JOptionPane.showInputDialog(null, "Informe a URL da logo da empresa:",
                     "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION);
 
+            if (logoEmpresa.isEmpty()) {
+                JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                        "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                chamaCadastroEmpresa();
+                return;
+            }
+
+
             String siteEmpresa = JOptionPane.showInputDialog(null, "Informe a URL do site da empresa (opcional):",
                     "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION);
+
+
+            if (getAmbienteDAO().findAmbienteInArray().length < 1) {
+                JOptionPane.showConfirmDialog(null, "Não existe ambiente cadastrado !!!",
+                        "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroEmpresa();
+                return;
+            }
 
 
             Object[] opcoesAmbiente = getAmbienteDAO().findAmbienteInArray();
@@ -754,6 +792,13 @@ public class Main {
 
             Empresa empresa = new Empresa(null, nomeEmpresa, logoEmpresa, siteEmpresa, ambientes.get(0));
 
+            if (getContatoDAO().findContatoInArray().length < 1) {
+                JOptionPane.showConfirmDialog(null, "Não existe contato cadastrado !!!",
+                        "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroEmpresa();
+                return;
+            }
+
             do {
                 Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
                 String initialSelectionContato = (String) selectionValuesContato[0];
@@ -763,6 +808,13 @@ public class Main {
 
                 String descricaoContato = JOptionPane.showInputDialog(null, "Informe a descrição do contato:",
                         "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION);
+
+                if (descricaoContato.isEmpty()) {
+                    JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                            "Cadastrar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                    chamaCadastroEmpresa();
+                    return;
+                }
 
                 EmpresaContato empresaContato = new EmpresaContato(null, descricaoContato, empresa, contatos.get(0));
 
@@ -800,6 +852,14 @@ public class Main {
         Integer contadorContato = 0;
 
         try {
+
+            if (getEmpresaDAO().findEmpresaInArray().length < 1) {
+                JOptionPane.showConfirmDialog(null, "Não existe empresa cadastrada !!!",
+                        "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroEmpresa();
+                return;
+            }
+
             Object[] selectionValuesEmpresa = getEmpresaDAO().findEmpresaInArray();
             String initialSelectionEmpresa = (String) selectionValuesEmpresa[0];
             Object selectionEmpresa = JOptionPane.showInputDialog(null, "Selecione a empresa que deseja editar:",
@@ -809,11 +869,40 @@ public class Main {
             Object nomeEmpresa = JOptionPane.showInputDialog(null, "Informe o nome da empresa:",
                     "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getNome());
 
+            if (nomeEmpresa.toString().isEmpty()) {
+                JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                        "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                chamaEditarEmpresa();
+                return;
+            }
+
+            if (getEmpresaDAO().verificaNomeEdicao(nomeEmpresa.toString(),empresaEdit.get(0)) == false) {
+                JOptionPane.showConfirmDialog(null, "Não é possivel editar uma empresa com um nome já existente !!!",
+                        "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaEditarEmpresa();
+                return;
+            }
+
             Object logoEmpresa = JOptionPane.showInputDialog(null, "Informe a logo da empresa:",
                     "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getLogo());
 
-            Object siteEmpresa = JOptionPane.showInputDialog(null, "Informe o site da empresa:",
+            if (logoEmpresa.toString().isEmpty()) {
+                JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                        "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                chamaEditarEmpresa();
+                return;
+            }
+
+            Object siteEmpresa = JOptionPane.showInputDialog(null, "Informe o site da empresa(opcional):",
                     "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaEdit.get(0).getSite());
+
+
+            if (getAmbienteDAO().findAmbienteInArray().length < 1) {
+                JOptionPane.showConfirmDialog(null, "Não existe ambiente cadastrado !!!",
+                        "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                chamaMenuCadastroEmpresa();
+                return;
+            }
 
             Object[] opcoesAmbiente = getAmbienteDAO().findAmbienteInArray();
             Object selectionAmbiente = JOptionPane.showInputDialog(null, "Selecione o Ambiente de Inovação:",
@@ -832,17 +921,30 @@ public class Main {
                 String initialSelectionListaContato = (String) selectionValuesListaContato[0];
                 Object selectionListaContato = JOptionPane.showInputDialog(null, "Selecione tipo de contato que deseja editar:",
                         "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesListaContato, initialSelectionListaContato);
-                List<EmpresaContato> empresaListaContatos = getEmpresaContatoDAO().buscarPorNome((String) selectionListaContato);
+                List<EmpresaContato> empresaListaContatos = getEmpresaContatoDAO().buscarPorNomeListaContato((String) selectionListaContato,empresa.getListaContato());
 
-//PAREI AQUI VOU CONTINUAR QUINTA o erro o buscaPorNome
+                if (getContatoDAO().findContatoInArray().length < 1) {
+                    JOptionPane.showConfirmDialog(null, "Não existe contato cadastrado !!!",
+                            "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+                    chamaMenuCadastroEmpresa();
+                    return;
+                }
+
                 Object[] selectionValuesContato = getContatoDAO().findContatoInArray();
                 Object selectionContato = JOptionPane.showInputDialog(null, "Selecione o novo tipo de contato:",
                         "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesContato,
                         empresaListaContatos.get(0).getContato().getNome());
                 List<Contato> contatos = getContatoDAO().buscarPorNome((String) selectionContato);
 
-                Object descricaoContato = JOptionPane.showInputDialog(null, "Informe o site da empresa (opcional):",
+                Object descricaoContato = JOptionPane.showInputDialog(null, "Informe a descrição do contato:",
                         "Editar Empresa", JOptionPane.DEFAULT_OPTION, null, null, empresaListaContatos.get(0).getDescricao());
+
+                if (descricaoContato.toString().isEmpty()) {
+                    JOptionPane.showConfirmDialog(null, "ERRO! Campo obrigatório!",
+                            "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                    chamaEditarEmpresa();
+                    return;
+                }
 
                 Integer posicaoContato = getEmpresaContatoDAO().buscarPorPosicao(empresa.getListaContato(), (String) selectionListaContato);
 
@@ -865,7 +967,7 @@ public class Main {
 
             } while (contadorContato == 0);
 
-            //  getEmpresaDAO().salvar(empresa);
+             getEmpresaDAO().salvar(empresa);
 
             JOptionPane.showConfirmDialog(null, "Empresa editada com sucesso!",
                     "Editar Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
@@ -874,6 +976,37 @@ public class Main {
         } catch (NullPointerException e) {
             chamaMenuCadastroEmpresa();
         }
+    }
+
+    private static void chamaRemoverEmpresa() throws SQLException, ClassNotFoundException {
+
+        if (getEmpresaDAO().findEmpresaInArray().length < 1) {
+            JOptionPane.showConfirmDialog(null, "Não existe empresa cadastrada !!!",
+                    "Remover Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
+            chamaMenuCadastroEmpresa();
+            return;
+        }
+        try {
+
+
+        Object[] selectionValuesEmpresa = getEmpresaDAO().findEmpresaInArray();
+        String initialSelectionEmresa = (String) selectionValuesEmpresa[0];
+        Object selectionEmpresa = JOptionPane.showInputDialog(null, "Selecione a empresa que deseja remover:",
+                "Remover Empresa", JOptionPane.DEFAULT_OPTION, null, selectionValuesEmpresa, initialSelectionEmresa);
+        List<Empresa> empresas = getEmpresaDAO().buscarPorNome((String) selectionEmpresa);
+
+        getEmpresaContatoDAO().removerEmpresaEContato(empresas.get(0).getId());
+        getEmpresaDAO().remover(empresas.get(0));
+
+        JOptionPane.showConfirmDialog(null, "Empresa removida com sucesso!",
+                "Remover Empresa", JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION, null);
+
+        chamaMenuCadastroEmpresa();
+
+    } catch (NullPointerException e) {
+        chamaMenuCadastroEmpresa();
+    }
+
     }
 
     private static void chamaMenuRelatorio() throws SQLException, ClassNotFoundException {
@@ -916,6 +1049,7 @@ public class Main {
                 break;
         }
     }
+
 
     private static void chamaRelatorioGeralAmbiente() throws SQLException, ClassNotFoundException {
 

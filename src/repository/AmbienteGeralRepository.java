@@ -1,6 +1,6 @@
 package repository;
 
-import model.Ambiente;
+
 import model.AmbienteGeral;
 
 import java.sql.*;

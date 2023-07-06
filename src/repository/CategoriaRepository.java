@@ -1,8 +1,7 @@
 package repository;
 
 import model.Categoria;
-import model.Cidade;
-import model.EstadoEnum;
+
 
 
 import java.sql.*;
