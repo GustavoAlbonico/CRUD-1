@@ -108,7 +108,7 @@ public class EmpresaRepository {
         stmt.setInt(4, empresa.getId().intValue());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linhas atualizadas");
         connection.close();
     }
 
@@ -117,7 +117,8 @@ public class EmpresaRepository {
         PreparedStatement stmt = connection.prepareStatement("delete from empresa where id = ?");
 
         stmt.setInt(1, empresa.getId().intValue());
-        stmt.executeUpdate();
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linhas removidas");
         connection.close();
     }
 

@@ -31,7 +31,7 @@ public class AmbienteRepository {
         stmt.setInt(7, ambiente.getCategoria().getId());
 
         int i = stmt.executeUpdate();
-        System.out.println(i + " linhas inseridas");
+        System.out.println(i + " linha(s) inserida(s)");
         connection.close();
     }
 
@@ -117,7 +117,8 @@ public class AmbienteRepository {
         PreparedStatement stmt = connection.prepareStatement("DELETE FROM ambiente" +
                 " WHERE id = ?");
         stmt.setInt(1, ambiente.getId().intValue());
-        stmt.executeUpdate();
+        int i = stmt.executeUpdate();
+        System.out.println(i + " linha(s) removida(s)");
         connection.close();
     }
 
