@@ -1,6 +1,6 @@
 package repository;
 
-import com.mysql.cj.xdevapi.Client;
+
 import model.Ambiente;
 import model.Cidade;
 import model.EstadoEnum;

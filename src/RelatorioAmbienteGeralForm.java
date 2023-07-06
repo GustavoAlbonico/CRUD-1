@@ -1,4 +1,4 @@
-import model.Ambiente;
+
 import model.AmbienteGeral;
 import relatorios.RelatorioAmbienteGeral;
 

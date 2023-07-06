@@ -1,7 +1,7 @@
 package repository;
 
 import model.Ambiente;
-import model.Categoria;
+
 
 import java.sql.*;
 import java.util.ArrayList;

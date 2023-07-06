@@ -2,7 +2,7 @@ package repository;
 
 import model.Ambiente;
 import model.Categoria;
-import model.Cidade;
+
 
 import java.sql.SQLException;
 import java.util.ArrayList;

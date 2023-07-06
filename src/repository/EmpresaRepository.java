@@ -1,7 +1,5 @@
 package repository;
 
-import model.AmbienteGeral;
-import model.Contato;
 import model.Empresa;
 
 import java.sql.*;

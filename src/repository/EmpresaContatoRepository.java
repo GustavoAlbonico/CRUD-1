@@ -1,6 +1,6 @@
 package repository;
 
-import model.Empresa;
+
 import model.EmpresaContato;
 
 import java.sql.*;

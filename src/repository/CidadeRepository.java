@@ -1,7 +1,7 @@
 package repository;
 
 import model.Cidade;
-import model.Empresa;
+
 import model.EstadoEnum;
 
 import java.sql.*;

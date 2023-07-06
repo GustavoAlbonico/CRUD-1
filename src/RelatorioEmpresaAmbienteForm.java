@@ -1,7 +1,7 @@
 import model.Ambiente;
 import model.Empresa;
 import relatorios.RelatorioEmpresaAmbiente;
-import relatorios.RelatorioEmpresaGeral;
+
 
 import javax.swing.*;
 import javax.swing.table.TableColumn;

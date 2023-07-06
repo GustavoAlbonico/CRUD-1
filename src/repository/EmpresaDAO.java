@@ -1,9 +1,7 @@
 package repository;
 
-import model.AmbienteGeral;
-import model.Contato;
+
 import model.Empresa;
-import model.EmpresaContato;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

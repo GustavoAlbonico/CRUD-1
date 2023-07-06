@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/ContatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ContatoRepository.java" afterDir="false" />
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Arrumando update do ContatoRepository">
+      <change beforePath="$PROJECT_DIR$/src/RelatorioAmbienteGeralForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioAmbienteGeralForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RelatorioEmpresaAmbienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioEmpresaAmbienteForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RelatorioEmpresaGeralForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteCidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/relatorios/RelatorioAmbienteCidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/relatorios/RelatorioEmpresaGeral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/relatorios/RelatorioEmpresaGeral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteGeralDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteGeralDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteGeralRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteGeralRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/AmbienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CategoriaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CategoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CidadeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/CidadeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/CidadeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaContatoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaContatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaContatoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688661320325</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Arrumando update do ContatoRepository">
+      <created>1688662310539</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688662310539</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,7 +213,8 @@
     <MESSAGE value="Criando CRUD de contato" />
     <MESSAGE value="arrumando o cadastro de empresa e tentando arrumar o editar empresa." />
     <MESSAGE value="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado" />
+    <MESSAGE value="Arrumando update do ContatoRepository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arrumando update do ContatoRepository" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,7 +1,6 @@
 package repository;
 
-import model.Ambiente;
-import model.Empresa;
+
 import model.EmpresaContato;
 
 import java.sql.SQLException;
