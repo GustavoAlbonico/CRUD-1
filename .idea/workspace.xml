@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="arrumando o cadastro de empresa e tentando arrumar o editar empresa.">
+    <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/ContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ContatoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaContatoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaContatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaContatoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/EmpresaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/ContatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ContatoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688619448996</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado">
+      <created>1688661320325</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688661320325</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,7 +190,8 @@
     <MESSAGE value="criando relatorio Empresa e seus metodos respectivos metodos&#10;criando menu no main." />
     <MESSAGE value="Criando CRUD de contato" />
     <MESSAGE value="arrumando o cadastro de empresa e tentando arrumar o editar empresa." />
-    <option name="LAST_COMMIT_MESSAGE" value="arrumando o cadastro de empresa e tentando arrumar o editar empresa." />
+    <MESSAGE value="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arrumando o editar empresa&#10;Criando remover empresa&#10;Criando metodos para nao deixar criar empresa com mesmo nome&#10;Fazendo tratamento de erro cadastrar/remvover/editar empresa&#10;Criando metodo para nao deixar excluir um contato que esta sendo utilizado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
