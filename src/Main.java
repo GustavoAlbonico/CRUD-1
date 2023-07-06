@@ -852,7 +852,6 @@ public class Main {
             chamaMenuRelatorioEmpresa();
     }
 
-
     }
 
     public static CidadeDAO getCidadeDAO() {
