@@ -622,7 +622,7 @@ public class Main {
                 return;
             }
 
-            Object numero = JOptionPane.showInputDialog(null, "Informe o número do ambiente de inovação:",
+            Object numero = JOptionPane.showInputDialog(null, "Informe o número do ambiente de inovação(opcional):",
                     "Editar Ambiente", JOptionPane.DEFAULT_OPTION, null, null, ambienteEdit.get(0).getNumero());
 
             Object bairro = JOptionPane.showInputDialog(null, "Informe o bairro do ambiente de inovação:",
