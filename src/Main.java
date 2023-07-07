@@ -424,7 +424,7 @@ public class Main {
             if (getContatoDAO().verificaParents(contatos.get(0)) == false) {
                 JOptionPane.showConfirmDialog(null, "Não é possivel remover o tipo de contato que pertence a uma empresa !!!",
                         "Remover Cidade", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null);
-                chamaMenuCadastroCategoria();
+                chamaMenuCadastroContato();
                 return;
             }
 
