@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 
@@ -14,13 +15,14 @@ public class AmbienteGeralTest {
     private AmbienteGeral ambienteGeral;
     private Contato contato;
     private Contato contato2;
-
+    private Cidade cidade;
+    private Categoria categoria;
     private Ambiente ambiente;
 
     @Before
     public void setUp() {
-        Cidade cidade = new Cidade(1, "São Paulo", EstadoEnum.SP);
-        Categoria categoria = new Categoria(1, "Categoria Teste");
+        cidade = new Cidade(1, "São Paulo", EstadoEnum.SP);
+        categoria = new Categoria(1, "Categoria Teste");
         ambiente = new Ambiente(1, "Ambiente Teste", "12345", "Rua Teste", "123", "Bairro Teste", cidade, categoria);
         contato = new Contato(1, "Nome do Contato");
         contato2 = new Contato(2, "Nome do Contato2");
@@ -57,6 +59,7 @@ public class AmbienteGeralTest {
         ambienteGeral.setListaEmpresa(novaListaEmpresa);
 
         assertEquals(2, ambienteGeral.getListaEmpresa().size());
+        assertEquals(Optional.of(1).get(), ambienteGeral.getListaEmpresa().get(0).getId());
         assertEquals("Empresa Teste 1", ambienteGeral.getListaEmpresa().get(0).getNome());
         assertEquals("logo1", ambienteGeral.getListaEmpresa().get(0).getLogo());
         assertEquals("site1", ambienteGeral.getListaEmpresa().get(0).getSite());
@@ -64,12 +67,15 @@ public class AmbienteGeralTest {
         assertEquals("Empresa Teste 2", ambienteGeral.getListaEmpresa().get(1).getNome());
         assertEquals("logo2", ambienteGeral.getListaEmpresa().get(1).getLogo());
         assertEquals("site2", ambienteGeral.getListaEmpresa().get(1).getSite());
+        assertEquals("Categoria Teste", ambienteGeral.getCategoria().getNome());
+        assertEquals("São Paulo", ambienteGeral.getCidade().getNome());
+        assertEquals(Optional.of(1).get(), ambienteGeral.getCidade().getId());
 
-        // Verificando contatos nas empresas
         assertEquals(1, ambienteGeral.getListaEmpresa().get(0).getListaContato().size());
         assertEquals("Contato 1", ambienteGeral.getListaEmpresa().get(0).getListaContato().get(0).getDescricao());
 
         assertEquals(1, ambienteGeral.getListaEmpresa().get(1).getListaContato().size());
         assertEquals("Contato 2", ambienteGeral.getListaEmpresa().get(1).getListaContato().get(0).getDescricao());
+
     }
 }

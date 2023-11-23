@@ -6,44 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Commit final: alterando enunciado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CRUD-Ambiente-de-Inovacao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CRUD-Ambiente-de-Inovacao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/RelatorioAmbienteCidadeForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/RelatorioAmbienteGeralForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/RelatorioEmpresaAmbienteForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/RelatorioEmpresaGeralForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/Ambiente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/AmbienteGeral.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/Categoria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/Cidade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/Contato.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/Empresa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/EmpresaContato.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/model/EstadoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/relatorios/RelatorioAmbienteCidade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/relatorios/RelatorioAmbienteGeral.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/relatorios/RelatorioEmpresaAmbiente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/relatorios/RelatorioEmpresaGeral.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/AmbienteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/AmbienteGeralDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/AmbienteGeralRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/AmbienteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/CategoriaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/CategoriaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/CidadeDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/CidadeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/ContatoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/ContatoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/EmpresaContatoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/EmpresaContatoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/EmpresaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/EmpresaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crud/repository/IGenericDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/model/AmbienteGeralTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/AmbienteGeralTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/AmbienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/AmbienteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/ContatoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/ContatoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,17 +54,11 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "unit-tests",
-    "last_opened_file_path": "C:/WORKSPACE/GIT/unit-tests-java"
+    "last_opened_file_path": "C:/WORKSPACE/GIT/unit-tests-java",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CategoriaDAOTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="CRUD-Ambiente-de-Inovacao" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AmbienteGeralTest.testGettersAndSetters">
     <configuration name="AmbienteDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CRUD-Ambiente-de-Inovacao" />
       <extension name="coverage">
@@ -113,6 +70,37 @@
       <option name="PACKAGE_NAME" value="test.java.repository" />
       <option name="MAIN_CLASS_NAME" value="test.java.repository.AmbienteDAOTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AmbienteGeralTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CRUD-Ambiente-de-Inovacao" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.java.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.java.model" />
+      <option name="MAIN_CLASS_NAME" value="test.java.model.AmbienteGeralTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AmbienteGeralTest.testGettersAndSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CRUD-Ambiente-de-Inovacao" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.java.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.java.model" />
+      <option name="MAIN_CLASS_NAME" value="test.java.model.AmbienteGeralTest" />
+      <option name="METHOD_NAME" value="testGettersAndSetters" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,28 +135,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RelatorioAmbienteCidadeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CRUD-Ambiente-de-Inovacao" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.java.relatorios.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.java.relatorios" />
-      <option name="MAIN_CLASS_NAME" value="test.java.relatorios.RelatorioAmbienteCidadeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AmbienteGeralTest.testGettersAndSetters" />
+        <item itemvalue="JUnit.AmbienteGeralTest" />
         <item itemvalue="JUnit.CategoriaDAOTest" />
         <item itemvalue="JUnit.AmbienteDAOTest" />
         <item itemvalue="JUnit.GenericDAOTest" />
-        <item itemvalue="JUnit.RelatorioAmbienteCidadeTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
