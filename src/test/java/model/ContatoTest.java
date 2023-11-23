@@ -1,6 +1,6 @@
 package test.java.model;
 
-import main.java.com.crud.model.Contato;
+import main.java.model.Contato;
 import org.junit.Before;
 import org.junit.Test;
 

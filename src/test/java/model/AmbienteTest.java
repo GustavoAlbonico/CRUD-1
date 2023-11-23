@@ -1,9 +1,9 @@
 package test.java.model;
 
-import main.java.com.crud.model.Ambiente;
-import main.java.com.crud.model.Categoria;
-import main.java.com.crud.model.Cidade;
-import main.java.com.crud.model.EstadoEnum;
+import main.java.model.Ambiente;
+import main.java.model.Categoria;
+import main.java.model.Cidade;
+import main.java.model.EstadoEnum;
 import org.junit.Before;
 import org.junit.Test;
 

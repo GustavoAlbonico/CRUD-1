@@ -1,6 +1,6 @@
 package test.java.model;
 
-import main.java.com.crud.model.*;
+import main.java.model.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,14 +15,12 @@ public class AmbienteGeralTest {
     private Contato contato;
     private Contato contato2;
 
-    private Cidade cidade;
-    private Categoria categoria;
     private Ambiente ambiente;
 
     @Before
     public void setUp() {
-        cidade = new Cidade(1, "São Paulo", EstadoEnum.SP);
-        categoria = new Categoria(1, "Categoria Teste");
+        Cidade cidade = new Cidade(1, "São Paulo", EstadoEnum.SP);
+        Categoria categoria = new Categoria(1, "Categoria Teste");
         ambiente = new Ambiente(1, "Ambiente Teste", "12345", "Rua Teste", "123", "Bairro Teste", cidade, categoria);
         contato = new Contato(1, "Nome do Contato");
         contato2 = new Contato(2, "Nome do Contato2");
