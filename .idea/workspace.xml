@@ -7,6 +7,7 @@
     <list default="true" id="879476ba-fecb-4baa-a4b3-f82b0fa32faa" name="Changes" comment="Commit final: alterando enunciado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/model/AmbienteGeralTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/AmbienteGeralTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/ContatoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/ContatoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2S5HrTONN6CCM7KVYOGXJNanpAp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -59,21 +60,6 @@
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.AmbienteGeralTest.testGettersAndSetters">
-    <configuration name="AmbienteDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CRUD-Ambiente-de-Inovacao" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.java.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.java.repository" />
-      <option name="MAIN_CLASS_NAME" value="test.java.repository.AmbienteDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AmbienteGeralTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CRUD-Ambiente-de-Inovacao" />
       <extension name="coverage">
@@ -85,6 +71,22 @@
       <option name="PACKAGE_NAME" value="test.java.model" />
       <option name="MAIN_CLASS_NAME" value="test.java.model.AmbienteGeralTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AmbienteGeralTest.testContatos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CRUD-Ambiente-de-Inovacao" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.java.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.java.model" />
+      <option name="MAIN_CLASS_NAME" value="test.java.model.AmbienteGeralTest" />
+      <option name="METHOD_NAME" value="testContatos" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,17 +122,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenericDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ContatoTest.testGettersAndSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CRUD-Ambiente-de-Inovacao" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.java.repository.*" />
+          <option name="PATTERN" value="test.java.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test.java.repository" />
-      <option name="MAIN_CLASS_NAME" value="test.java.repository.GenericDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="test.java.model" />
+      <option name="MAIN_CLASS_NAME" value="test.java.model.ContatoTest" />
+      <option name="METHOD_NAME" value="testGettersAndSetters" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,9 +142,9 @@
       <list>
         <item itemvalue="JUnit.AmbienteGeralTest.testGettersAndSetters" />
         <item itemvalue="JUnit.AmbienteGeralTest" />
+        <item itemvalue="JUnit.AmbienteGeralTest.testContatos" />
+        <item itemvalue="JUnit.ContatoTest.testGettersAndSetters" />
         <item itemvalue="JUnit.CategoriaDAOTest" />
-        <item itemvalue="JUnit.AmbienteDAOTest" />
-        <item itemvalue="JUnit.GenericDAOTest" />
       </list>
     </recent_temporary>
   </component>
