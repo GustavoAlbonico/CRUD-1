@@ -39,6 +39,7 @@ public class Main {
             case 6: //Sair
                 System.exit(0);
                 break;
+                
         }
     }
 
